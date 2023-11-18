@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Control_de_ingresos.Arroz">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAYAAAAGwACAAAAAAAAAAAACAAAAAgAAAiA=</HashCode>
+      <FileName>Arroz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Control_de_ingresos.Gaseosa">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAASAAAAEwACAAAAAAAAAAAAAAAgAAAAIAiA=</HashCode>
+      <FileName>Gaseosa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Control_de_ingresos.GaseosaPorMayor">
+    <Position X="3.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAUAAAAEwACAAABAAAAAQAAAAAAAAAAAAiA=</HashCode>
+      <FileName>GaseosaPorMayor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Control_de_ingresos.ListaProductos">
+    <Position X="9.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABQAEAAAABBAAAAAAAAAAEAAAAAiA=</HashCode>
+      <FileName>ListaProductos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Control_de_ingresos.Milanesas">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAQAAAAEwACAACAABAAgAAAAAAAAAAAAAiA=</HashCode>
+      <FileName>Milanesas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Control_de_ingresos.Producto">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAABBEAAAQQACCEgBCAgAAQAAAAEAAAQAAAAAAAAiQ=</HashCode>
+      <FileName>Producto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Control_de_ingresos.Usuario">
+    <Position X="11.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQBAACEAAAAAAAAAAQAAACAAAAQAAAAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="EMarca">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECgAAAAAAAgAAAAACAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Marca.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
