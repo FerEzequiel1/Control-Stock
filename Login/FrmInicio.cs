@@ -377,61 +377,69 @@ namespace Aplicacion
         /// </summary>
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            int indice = this.lstProductos.SelectedIndex;
-
-            if (indice == -1)
+            if(usuario.perfil == "supervisor" || usuario.perfil == "administrador")
             {
-                return;
-            }
-            //Se obtiene el producto seleccioando mediante el indice obtenido del lstProductos 
 
-            Producto producto = this.listaDeProductos.ListaDeProductos[indice];
+                int indice = this.lstProductos.SelectedIndex;
 
-            this.listaDeProductos.ListaDeProductos.Remove(producto);
-
-            // Se verifica que de que tipo (Aarroz,gaseosa o gaseosa por mayor) es el producto para desplegar sus formularios de modificación correspondientes
-            // y agregar el producto modificado a la lista
-
-            if (producto is Arroz)
-            {
-                Arroz productoArroz = producto as Arroz;
-                FrmAarroz frmAarroz = new FrmAarroz(this.listaDeProductos, productoArroz, true);
-                frmAarroz.StartPosition = FormStartPosition.CenterScreen;
-                frmAarroz.ShowDialog();
-                ActualizarLista(frmAarroz);
-
-            }
-            else
-            {
-                if (producto is Gaseosa)
+                if (indice == -1)
                 {
-                    Gaseosa productoGaseosa = producto as Gaseosa;
-                    FrmGaseosa frmGaseosa = new FrmGaseosa(this.listaDeProductos, productoGaseosa, true);
-                    frmGaseosa.StartPosition = FormStartPosition.CenterScreen;
-                    frmGaseosa.ShowDialog();
-                    ActualizarLista(frmGaseosa);
+                    return;
+                }
+                //Se obtiene el producto seleccioando mediante el indice obtenido del lstProductos 
+
+                Producto producto = this.listaDeProductos.ListaDeProductos[indice];
+
+                this.listaDeProductos.ListaDeProductos.Remove(producto);
+
+                // Se verifica que de que tipo (Aarroz,gaseosa o gaseosa por mayor) es el producto para desplegar sus formularios de modificación correspondientes
+                // y agregar el producto modificado a la lista
+
+                if (producto is Arroz)
+                {
+                    Arroz productoArroz = producto as Arroz;
+                    FrmAarroz frmAarroz = new FrmAarroz(this.listaDeProductos, productoArroz, true);
+                    frmAarroz.StartPosition = FormStartPosition.CenterScreen;
+                    frmAarroz.ShowDialog();
+                    ActualizarLista(frmAarroz);
+
                 }
                 else
                 {
-                    if(producto is GaseosaPorMayor)
+                    if (producto is Gaseosa)
                     {
-                        GaseosaPorMayor productoGaseosaPorMayor = producto as GaseosaPorMayor;
-                        FrmGaseosaPorMayor frmGaseosaMayor = new FrmGaseosaPorMayor(this.listaDeProductos, productoGaseosaPorMayor, true);
-                        frmGaseosaMayor.StartPosition = FormStartPosition.CenterScreen;
-                        frmGaseosaMayor.ShowDialog();
-                        ActualizarLista(frmGaseosaMayor);
+                        Gaseosa productoGaseosa = producto as Gaseosa;
+                        FrmGaseosa frmGaseosa = new FrmGaseosa(this.listaDeProductos, productoGaseosa, true);
+                        frmGaseosa.StartPosition = FormStartPosition.CenterScreen;
+                        frmGaseosa.ShowDialog();
+                        ActualizarLista(frmGaseosa);
                     }
                     else
                     {
-                        Milanesas milanesa = producto as Milanesas;
-                        FrmMilanesas frmMilanesa = new FrmMilanesas(this.listaDeProductos, milanesa, true);
-                        frmMilanesa.StartPosition = FormStartPosition.CenterScreen;
-                        frmMilanesa.ShowDialog();
-                        ActualizarLista(frmMilanesa);
-                    }
+                        if(producto is GaseosaPorMayor)
+                        {
+                            GaseosaPorMayor productoGaseosaPorMayor = producto as GaseosaPorMayor;
+                            FrmGaseosaPorMayor frmGaseosaMayor = new FrmGaseosaPorMayor(this.listaDeProductos, productoGaseosaPorMayor, true);
+                            frmGaseosaMayor.StartPosition = FormStartPosition.CenterScreen;
+                            frmGaseosaMayor.ShowDialog();
+                            ActualizarLista(frmGaseosaMayor);
+                        }
+                        else
+                        {
+                            Milanesas milanesa = producto as Milanesas;
+                            FrmMilanesas frmMilanesa = new FrmMilanesas(this.listaDeProductos, milanesa, true);
+                            frmMilanesa.StartPosition = FormStartPosition.CenterScreen;
+                            frmMilanesa.ShowDialog();
+                            ActualizarLista(frmMilanesa);
+                        }
 
                 
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show($"Su perfil es de vendedor,no puede modificar ningún producto", "Perfil denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
