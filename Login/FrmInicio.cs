@@ -377,7 +377,7 @@ namespace Aplicacion
         /// </summary>
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(usuario.perfil == "supervisor" || usuario.perfil == "administrador")
+            if (usuario.perfil == "supervisor" || usuario.perfil == "administrador")
             {
 
                 int indice = this.lstProductos.SelectedIndex;
@@ -416,7 +416,7 @@ namespace Aplicacion
                     }
                     else
                     {
-                        if(producto is GaseosaPorMayor)
+                        if (producto is GaseosaPorMayor)
                         {
                             GaseosaPorMayor productoGaseosaPorMayor = producto as GaseosaPorMayor;
                             FrmGaseosaPorMayor frmGaseosaMayor = new FrmGaseosaPorMayor(this.listaDeProductos, productoGaseosaPorMayor, true);
@@ -432,8 +432,6 @@ namespace Aplicacion
                             frmMilanesa.ShowDialog();
                             ActualizarLista(frmMilanesa);
                         }
-
-                
                     }
                 }
             }
@@ -443,6 +441,33 @@ namespace Aplicacion
             }
         }
 
-      
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if(usuario.perfil == "administrador")
+            {
+                int indice = this.lstProductos.SelectedIndex;
+                if (indice >= 0)
+                {
+                    DialogResult resultado = MessageBox.Show("¿Realmente desea eliminar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        Producto producto = this.listaDeProductos.ListaDeProductos[indice];
+
+                        if (listaDeProductos - producto)
+                        {
+                            MessageBox.Show($"Producto eliminado con éxito", "Producto eliminado.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            PublicarProductos();
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Seleccione un producto para elimniar.", "No se encontro producto.", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                
+
+            }
+        }
     }
 }

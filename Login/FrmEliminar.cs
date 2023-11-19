@@ -41,6 +41,7 @@ namespace Aplicacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            
             int indice = this.lsBProductos.SelectedIndex;
 
             DialogResult resultado = MessageBox.Show("¿Realmente desea eliminar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

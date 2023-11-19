@@ -49,9 +49,10 @@
             gaseosaToolStripMenuItem = new ToolStripMenuItem();
             arrozToolStripMenuItem = new ToolStripMenuItem();
             salchichaToolStripMenuItem = new ToolStripMenuItem();
+            milanesasToolStripMenuItem = new ToolStripMenuItem();
             eliminarProductoToolStripMenuItem = new ToolStripMenuItem();
             historialDePersonasToolStripMenuItem = new ToolStripMenuItem();
-            milanesasToolStripMenuItem = new ToolStripMenuItem();
+            btnEliminar = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnEliminar);
             groupBox1.Controls.Add(btnModificar);
             groupBox1.Controls.Add(btnCargar);
             groupBox1.Controls.Add(btnGuardar);
@@ -76,7 +78,7 @@
             // btnModificar
             // 
             btnModificar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnModificar.Location = new Point(607, 310);
+            btnModificar.Location = new Point(722, 310);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(116, 59);
             btnModificar.TabIndex = 10;
@@ -87,7 +89,7 @@
             // btnCargar
             // 
             btnCargar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCargar.Location = new Point(769, 312);
+            btnCargar.Location = new Point(860, 310);
             btnCargar.Name = "btnCargar";
             btnCargar.Size = new Size(116, 57);
             btnCargar.TabIndex = 3;
@@ -98,7 +100,7 @@
             // btnGuardar
             // 
             btnGuardar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGuardar.Location = new Point(946, 312);
+            btnGuardar.Location = new Point(992, 310);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(116, 57);
             btnGuardar.TabIndex = 2;
@@ -272,6 +274,13 @@
             salchichaToolStripMenuItem.Text = "Gaseosas por mayor";
             salchichaToolStripMenuItem.Click += salchichaToolStripMenuItem_Click;
             // 
+            // milanesasToolStripMenuItem
+            // 
+            milanesasToolStripMenuItem.Name = "milanesasToolStripMenuItem";
+            milanesasToolStripMenuItem.Size = new Size(222, 26);
+            milanesasToolStripMenuItem.Text = "Milanesas";
+            milanesasToolStripMenuItem.Click += milanesasToolStripMenuItem_Click;
+            // 
             // eliminarProductoToolStripMenuItem
             // 
             eliminarProductoToolStripMenuItem.Name = "eliminarProductoToolStripMenuItem";
@@ -286,12 +295,18 @@
             historialDePersonasToolStripMenuItem.Text = "Historial de personas";
             historialDePersonasToolStripMenuItem.Click += historialDePersonasToolStripMenuItem_Click;
             // 
-            // milanesasToolStripMenuItem
+            // btnEliminar
             // 
-            milanesasToolStripMenuItem.Name = "milanesasToolStripMenuItem";
-            milanesasToolStripMenuItem.Size = new Size(222, 26);
-            milanesasToolStripMenuItem.Text = "Milanesas";
-            milanesasToolStripMenuItem.Click += milanesasToolStripMenuItem_Click;
+            btnEliminar.BackColor = Color.Red;
+            btnEliminar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminar.ForeColor = SystemColors.ButtonHighlight;
+            btnEliminar.Location = new Point(578, 310);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(116, 59);
+            btnEliminar.TabIndex = 11;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // FrmInicio
             // 
@@ -346,5 +361,6 @@
         private Button btnCargar;
         private Button btnModificar;
         private ToolStripMenuItem milanesasToolStripMenuItem;
+        private Button btnEliminar;
     }
 }
