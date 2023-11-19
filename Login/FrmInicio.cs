@@ -437,7 +437,7 @@ namespace Aplicacion
             }
             else
             {
-                MessageBox.Show($"Su perfil es de vendedor,no puede modificar ningún producto", "Perfil denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Su perfil es de vendedor,no puede modificar ningún producto.", "Perfil denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -465,8 +465,10 @@ namespace Aplicacion
                 {
                     MessageBox.Show($"Seleccione un producto para elimniar.", "No se encontro producto.", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
-                
-
+            }
+            else
+            {
+                MessageBox.Show($"Su perfil de {usuario.perfil} no puede realizar dicha acción.", "Producto eliminado.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
