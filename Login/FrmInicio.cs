@@ -81,25 +81,6 @@ namespace Aplicacion
             CrearFormulario("Milanesas");
         }
 
-        /// <summary>
-        /// Se abre la interfaz para eliminar un producto a seleccionar en la lista,
-        /// una vez terminado se reasigna la lista recortada al atributo listaDeProductos del 
-        /// formulario principal para mostras en la intefaz de inicio
-        /// </summary>
-
-        private void eliminarProductoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmEliminar frmEliminar = new FrmEliminar(this.listaDeProductos);
-            frmEliminar.StartPosition = FormStartPosition.CenterScreen;
-            frmEliminar.ShowDialog();
-
-            if (frmEliminar.DialogResult == DialogResult.OK)
-            {
-                this.listaDeProductos = frmEliminar.lista;
-            }
-
-            PublicarProductos();
-        }
 
         /// <summary>
         /// Ordena la lista en el List Box segun el criterio de chekeo 
@@ -443,7 +424,7 @@ namespace Aplicacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(usuario.perfil == "administrador")
+            if (usuario.perfil == "administrador")
             {
                 int indice = this.lstProductos.SelectedIndex;
                 if (indice >= 0)

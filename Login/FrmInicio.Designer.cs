@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            btnEliminar = new Button();
             btnModificar = new Button();
             btnCargar = new Button();
             btnGuardar = new Button();
@@ -50,9 +51,7 @@
             arrozToolStripMenuItem = new ToolStripMenuItem();
             salchichaToolStripMenuItem = new ToolStripMenuItem();
             milanesasToolStripMenuItem = new ToolStripMenuItem();
-            eliminarProductoToolStripMenuItem = new ToolStripMenuItem();
             historialDePersonasToolStripMenuItem = new ToolStripMenuItem();
-            btnEliminar = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -74,6 +73,19 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Productos";
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = Color.Red;
+            btnEliminar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminar.ForeColor = SystemColors.ButtonHighlight;
+            btnEliminar.Location = new Point(578, 310);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(116, 59);
+            btnEliminar.TabIndex = 11;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -241,7 +253,7 @@
             // 
             // menuToolStripMenuItem
             // 
-            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ingresarProductoToolStripMenuItem, eliminarProductoToolStripMenuItem, historialDePersonasToolStripMenuItem });
+            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ingresarProductoToolStripMenuItem, historialDePersonasToolStripMenuItem });
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             menuToolStripMenuItem.Size = new Size(62, 21);
             menuToolStripMenuItem.Text = "Menu";
@@ -281,32 +293,12 @@
             milanesasToolStripMenuItem.Text = "Milanesas";
             milanesasToolStripMenuItem.Click += milanesasToolStripMenuItem_Click;
             // 
-            // eliminarProductoToolStripMenuItem
-            // 
-            eliminarProductoToolStripMenuItem.Name = "eliminarProductoToolStripMenuItem";
-            eliminarProductoToolStripMenuItem.Size = new Size(226, 26);
-            eliminarProductoToolStripMenuItem.Text = "Eliminar producto";
-            eliminarProductoToolStripMenuItem.Click += eliminarProductoToolStripMenuItem_Click;
-            // 
             // historialDePersonasToolStripMenuItem
             // 
             historialDePersonasToolStripMenuItem.Name = "historialDePersonasToolStripMenuItem";
             historialDePersonasToolStripMenuItem.Size = new Size(226, 26);
             historialDePersonasToolStripMenuItem.Text = "Historial de personas";
             historialDePersonasToolStripMenuItem.Click += historialDePersonasToolStripMenuItem_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.BackColor = Color.Red;
-            btnEliminar.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEliminar.ForeColor = SystemColors.ButtonHighlight;
-            btnEliminar.Location = new Point(578, 310);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(116, 59);
-            btnEliminar.TabIndex = 11;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = false;
-            btnEliminar.Click += btnEliminar_Click;
             // 
             // FrmInicio
             // 
@@ -347,7 +339,6 @@
         private ToolStripMenuItem gaseosaToolStripMenuItem;
         private ToolStripMenuItem arrozToolStripMenuItem;
         private ToolStripMenuItem salchichaToolStripMenuItem;
-        private ToolStripMenuItem eliminarProductoToolStripMenuItem;
         private ToolStripMenuItem historialDePersonasToolStripMenuItem;
         private GroupBox groupBox2;
         private RadioButton rbMayor;
