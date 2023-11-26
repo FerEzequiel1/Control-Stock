@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución",
 		..\..\..\OneDrive\Escritorio\ojo.png = ..\..\..\OneDrive\Escritorio\ojo.png
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pruebaSQLa", "pruebaSQLa\pruebaSQLa.csproj", "{E1774507-3E3A-4AAF-B66D-DC06E50D545F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{99DFE799-3F05-4EE7-B624-C24F4D333BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99DFE799-3F05-4EE7-B624-C24F4D333BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99DFE799-3F05-4EE7-B624-C24F4D333BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1774507-3E3A-4AAF-B66D-DC06E50D545F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1774507-3E3A-4AAF-B66D-DC06E50D545F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1774507-3E3A-4AAF-B66D-DC06E50D545F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1774507-3E3A-4AAF-B66D-DC06E50D545F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
