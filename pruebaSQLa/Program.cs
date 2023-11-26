@@ -5,14 +5,12 @@ internal class Program
     {
         AccesoDatos ado = new AccesoDatos();
 
-        if (ado.Prueba())
+        List<Arroz> list = ado.obtenerLista();
+
+        foreach (Arroz arroz in list)
         {
-            Console.WriteLine("Se conecto");
-        }
-        else
-        {
-            Console.WriteLine("No se conecto");
-        }
+            Console.WriteLine(arroz.ToString());
+        } 
 
         Console.ReadKey();
     }

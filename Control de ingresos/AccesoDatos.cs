@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
+using System.Text.RegularExpressions;
+using System.Drawing;
 
 namespace Control_de_ingresos
 {
@@ -12,6 +14,8 @@ namespace Control_de_ingresos
     {
         private SqlConnection conexion;
         private static string cadena_conexion;
+        private SqlCommand comando;
+        private SqlDataReader lector;
 
         static AccesoDatos()
         {
@@ -32,7 +36,7 @@ namespace Control_de_ingresos
                 retorno= true;
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 throw;
@@ -47,6 +51,48 @@ namespace Control_de_ingresos
 
 
             return retorno;
+        }
+
+        public List<Arroz> obtenerLista()
+        {
+            List <Arroz> lista = new List<Arroz> ();
+
+            try
+            {
+                this.comando = new SqlCommand();
+                this.comando.CommandType = System.Data.CommandType.Text;
+                this.comando.CommandText = "select * from Arroz";
+                this.comando.Connection = this.conexion;
+
+                this.conexion.Open();
+
+                this.lector = this.comando.ExecuteReader();
+
+                while (this.lector.Read()) 
+                { 
+                    Arroz aroz = new Arroz();
+                    aroz.Nombre = (string)this.lector["nombre"];
+                    aroz.Tipo = (string)this.lector["tipo"];
+                    aroz.Marca = (EMarca)Enum.Parse(typeof(EMarca), (string)this.lector["marca"]);
+                    aroz.Cantidad = (int)this.lector["cantidad"];
+                    aroz.Precio = (float)this.lector.GetDouble(5);
+                    aroz.Origen = (string)this.lector["origen"];
+                    aroz.Porveedor = (string)this.lector["proveedor"];
+                    lista.Add(aroz);
+                }
+                this.lector.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                if (this.conexion.State == System.Data.ConnectionState.Open) this.conexion.Close();
+            }
+
+
+            return lista;
         }
     }
 }
