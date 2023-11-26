@@ -15,7 +15,38 @@ namespace Control_de_ingresos
 
         static AccesoDatos()
         {
+            AccesoDatos.cadena_conexion = Properties.Resources.miConexion;
+        }
+        public AccesoDatos()
+        {
+            this.conexion = new SqlConnection(AccesoDatos.cadena_conexion);
+        }
 
+        public bool Prueba()
+        {
+            bool retorno = false;
+
+            try
+            {
+                this.conexion.Open();
+                retorno= true;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally 
+            { 
+                if(this.conexion.State == System.Data.ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                } 
+            }
+
+
+            return retorno;
         }
     }
 }
