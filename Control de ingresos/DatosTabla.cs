@@ -48,6 +48,10 @@ namespace Control_de_ingresos
 
             string query = $"INSERT INTO {nombreTabla} ({columnas}) VALUES ({valores})";
 
+            conexion.comando.CommandText = query;
+            conexion.comando.ExecuteNonQuery();
+            conexion.conexion.Close();
+
         }
 
         private static string ObtenerTabla(Type tipo)
