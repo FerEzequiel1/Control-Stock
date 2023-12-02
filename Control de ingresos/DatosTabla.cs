@@ -165,6 +165,22 @@ namespace Control_de_ingresos
 
         public static void EliminarProducto<T>(T producto)
         {
+            try
+            {
+                string nombreTabla = ObtenerTabla(typeof(T));
+
+                AccesoDatos conexion = new AccesoDatos();
+                conexion.conexion.Open();
+
+                var properties = typeof(T).GetProperties();
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
 
