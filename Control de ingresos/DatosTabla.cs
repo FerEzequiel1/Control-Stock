@@ -119,9 +119,8 @@ namespace Control_de_ingresos
                             var convertedValue = Convert.ChangeType(valor, property.PropertyType);
                             property.SetValue(objeto, convertedValue);
                         }
-
-
                     }
+                    list.Add(objeto);
 
                 }
 
@@ -130,6 +129,18 @@ namespace Control_de_ingresos
             {
 
                 throw;
+            }
+            finally
+            {
+                if (conexion.conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.conexion.Close();
+                }
+
+                if (conexion.lector != null && !conexion.lector.IsClosed)
+                {
+                    conexion.lector.Close();
+                }
             }
 
 
