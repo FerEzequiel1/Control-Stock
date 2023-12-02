@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -12,7 +13,7 @@ namespace Control_de_ingresos
     /// Clase hija de Producto. Comparte sus mismas caracteristicas y métodos agregando los propios 
     /// para completar la clase
     /// </summary>
-    public class GaseosaPorMayor:Gaseosa
+    public class GaseosaPorMayor:Gaseosa , IModificarProducto<GaseosaPorMayor>
     {
 
         private int unidades;
@@ -126,6 +127,58 @@ namespace Control_de_ingresos
         {
 
             return new GaseosaPorMayor("GaseosaX", "Mezcla", (EMarca)Enum.Parse(typeof(EMarca), "Trapal"), a.Cantidad + b.Cantidad, (a.Precio + b.Precio) * 0.7f,0.500f,"Uva",a.Unidades+b.Unidades,"No");
+
+        }
+
+        public void ModificarElemento(GaseosaPorMayor producto1, GaseosaPorMayor producto2)
+        {
+            string nombreTabla = "GaseosaPorMayor";
+            AccesoDatos conexion = new AccesoDatos();
+            conexion.conexion.Open();
+            try
+            {
+                string consulta = $"UPDATE {nombreTabla} SET cantidad = @cantidad, marca = @marca, nombre = @nombre, tipo = @tipo, precio = @precio," +
+                                  $" sabor = @sabor, mililitros = @mililitros, artesanal = @artesanal, unidades = @unidades WHERE cantidad = @cantidad1 AND marca = @marca1 AND nombre = @nombre1 AND tipo = @tipo1 AND precio = @precio1 AND" +
+                                  $" sabor = @sabor1 AND mililitros = @mililitros1 AND artesanal = @artesanal1 AND unidades = @unidades1";
+
+                conexion.comando = new SqlCommand();
+                conexion.comando.Connection = conexion.conexion;
+                conexion.comando.CommandText = consulta;
+                // se agrega parámetros con los valores del objeto modificado
+                conexion.comando.Parameters.AddWithValue("@cantidad", producto2.Cantidad);
+                conexion.comando.Parameters.AddWithValue("@marca", producto2.Marca.ToString());
+                conexion.comando.Parameters.AddWithValue("@nombre", producto2.Nombre);
+                conexion.comando.Parameters.AddWithValue("@tipo", producto2.Tipo);
+                conexion.comando.Parameters.AddWithValue("@precio", producto2.Precio);
+                conexion.comando.Parameters.AddWithValue("@mililitros", producto2.Mililitros);
+                conexion.comando.Parameters.AddWithValue("@sabor", producto2.Sabor);
+                conexion.comando.Parameters.AddWithValue("@artesanal", producto2.Artesanal);
+                conexion.comando.Parameters.AddWithValue("@unidades", producto2.Unidades);
+                // Se agrega los parámetros de la busqueda del obejto en la tabla
+                conexion.comando.Parameters.AddWithValue("@cantidad1", producto1.Cantidad);
+                conexion.comando.Parameters.AddWithValue("@marca1", producto1.Marca.ToString());
+                conexion.comando.Parameters.AddWithValue("@nombre1", producto1.Nombre);
+                conexion.comando.Parameters.AddWithValue("@tipo1", producto1.Tipo);
+                conexion.comando.Parameters.AddWithValue("@precio1", producto1.Precio);
+                conexion.comando.Parameters.AddWithValue("@mililitros1", producto1.Mililitros);
+                conexion.comando.Parameters.AddWithValue("@sabor1", producto1.Sabor);
+                conexion.comando.Parameters.AddWithValue("@artesanal1", producto1.Artesanal);
+                conexion.comando.Parameters.AddWithValue("@unidades1", producto1.Unidades);
+
+                int filasAfectadas = conexion.comando.ExecuteNonQuery();
+
+                Console.WriteLine($"Se actualizaron elementos en la tabla {nombreTabla}. Filas afectadas: {filasAfectadas}");
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (conexion.conexion.State == System.Data.ConnectionState.Open) conexion.conexion.Close();
+            }
+
 
         }
 
