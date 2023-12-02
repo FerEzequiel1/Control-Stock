@@ -15,13 +15,13 @@ namespace Control_de_ingresos
     public class Arroz:Producto
     {
         private string origen;
-        private string porveedor;
+        private string proveedor;
 
 
         public Arroz(string nombre, string tipo, EMarca marca, int cantidad, float precio,string origen,string proveedor) : base(nombre,tipo, marca, cantidad,precio)
         {
             this.origen = origen;
-            this.porveedor = proveedor;
+            this.proveedor = proveedor;
             this.AjustarPrecio();
         }
         public Arroz(string nombre, string tipo, EMarca marca, int cantidad, float precio, string origen) : this(nombre, tipo, marca, cantidad, precio, origen,"Desconocido")
@@ -38,7 +38,7 @@ namespace Control_de_ingresos
             
         }
         public string Origen { get => origen; set => origen = value; }
-        public string Porveedor { get => porveedor; set => porveedor = value; }
+        public string Proveedor { get => proveedor; set => proveedor = value; }
 
 
        
@@ -55,7 +55,7 @@ namespace Control_de_ingresos
             StringBuilder sb = new StringBuilder();
 
             sb.Append(base.Mostrar());
-            sb.Append($"--- Origen: {Origen} --- Proveedor: {Porveedor} --- TOTAL: {this.PrecioTotal()}");
+            sb.Append($"--- Origen: {Origen} --- Proveedor: {Proveedor} --- TOTAL: {this.PrecioTotal()}");
 
             return sb.ToString();
         }

@@ -7,15 +7,17 @@ using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Drawing;
+using System.Reflection;
+using System.Collections;
 
 namespace Control_de_ingresos
 {
     public class AccesoDatos
     {
-        private SqlConnection conexion;
-        private static string cadena_conexion;
-        private SqlCommand comando;
-        private SqlDataReader lector;
+        public SqlConnection conexion;
+        public static string cadena_conexion;
+        public SqlCommand comando;
+        public SqlDataReader lector;
 
         static AccesoDatos()
         {
@@ -25,6 +27,7 @@ namespace Control_de_ingresos
         {
             this.conexion = new SqlConnection(AccesoDatos.cadena_conexion);
         }
+       
 
         public bool Prueba()
         {
@@ -77,7 +80,7 @@ namespace Control_de_ingresos
                     aroz.Cantidad = (int)this.lector["cantidad"];
                     aroz.Precio = (float)this.lector.GetDouble(5);
                     aroz.Origen = (string)this.lector["origen"];
-                    aroz.Porveedor = (string)this.lector["proveedor"];
+                    aroz.Proveedor = (string)this.lector["proveedor"];
                     lista.Add(aroz);
                 }
                 this.lector.Close();
@@ -94,5 +97,6 @@ namespace Control_de_ingresos
 
             return lista;
         }
+
     }
 }
