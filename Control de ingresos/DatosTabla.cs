@@ -42,6 +42,12 @@ namespace Control_de_ingresos
 
                 conexion.comando.Parameters.AddWithValue($"@{nombreColumna}", valor);
             }
+
+            columnas.Length -= 2; 
+            valores.Length -= 2;
+
+            string query = $"INSERT INTO {nombreTabla} ({columnas}) VALUES ({valores})";
+
         }
 
         private static string ObtenerTabla(Type tipo)
