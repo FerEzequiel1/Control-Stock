@@ -118,15 +118,33 @@ namespace Control_de_ingresos
 
         public void ModificarElemento(Milanesas producto1, Milanesas producto2)
         {
-            string nombreTabla = "Milanesas"; // Reemplaza con el nombre de tu tabla en la base de datos
+            string nombreTabla = "Milanesas"; 
             AccesoDatos conexion = new AccesoDatos();
             conexion.conexion.Open();
             try
             {
                 string consulta = $"UPDATE {nombreTabla} SET cantidad = @cantidad, marca = @marca, nombre = @nombre, tipo = @tipo, precio = @precio," +
-                                  $" origenAnimal = @origenAnimal, nacionalidad = @nacionalidad WHERE nacionalidad = @nacionalidad1";
+                                  $" origenAnimal = @origenAnimal, nacionalidad = @nacionalidad WHERE nacionalidad = @nacionalidad1, cantidad = @cantidad1, marca = @marca1," +
+                                  $"nombre = @nombre1, tipo = @tipo1, precio = @precio1, origenAnimal = @origenAnimal1, nacionalidad = @nacionalidad1";
 
-               
+                conexion.comando = new SqlCommand();
+                conexion.comando.Connection = conexion.conexion;
+                // se agrega parámetros con los valores del objeto modificado
+                conexion.comando.Parameters.AddWithValue("@cantidad", producto2.Cantidad);
+                conexion.comando.Parameters.AddWithValue("@marca", producto2.Marca.ToString());
+                conexion.comando.Parameters.AddWithValue("@nombre", producto2.Nombre);
+                conexion.comando.Parameters.AddWithValue("@tipo", producto2.Tipo);
+                conexion.comando.Parameters.AddWithValue("@precio", producto2.Precio);
+                conexion.comando.Parameters.AddWithValue("@origenAnimal", producto2.OrigenAnimal);
+                conexion.comando.Parameters.AddWithValue("@nacionalidad", producto2.Nacionalidad);
+                // Se agrega los parámetros de la busqueda del obejto en la tabla
+                conexion.comando.Parameters.AddWithValue("@cantidad1", producto1.Cantidad);
+                conexion.comando.Parameters.AddWithValue("@marca1", producto1.Marca.ToString());
+                conexion.comando.Parameters.AddWithValue("@nombre1", producto1.Nombre);
+                conexion.comando.Parameters.AddWithValue("@tipo1", producto1.Tipo);
+                conexion.comando.Parameters.AddWithValue("@precio1", producto1.Precio);
+                conexion.comando.Parameters.AddWithValue("@origenAnimal1", producto1.OrigenAnimal);
+                conexion.comando.Parameters.AddWithValue("@nacionalidad1", producto1.Nacionalidad);
 
 
             }
