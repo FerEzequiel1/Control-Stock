@@ -14,6 +14,7 @@ namespace Control_de_ingresos
     /// </summary>
     public class GaseosaPorMayor:Gaseosa
     {
+
         private int unidades;
         private string artesanal;
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Control_de_ingresos
     /// Clase hija de Producto. Comparte sus mismas caracteristicas y métodos agregando los propios 
     /// para completar la clase
     /// </summary>
-    public class Arroz:Producto
+    public class Arroz:Producto , IModificarProducto<Arroz>
     {
         private string origen;
         private string proveedor;
@@ -125,6 +126,53 @@ namespace Control_de_ingresos
             return new Arroz("Combo Bolsa de Arroz", "Mezcla", (EMarca)Enum.Parse(typeof(EMarca), "Trapal"), a.Cantidad + b.Cantidad, (a.Precio + b.Precio) * 0.7f, "Argentina", "Trapal");
         }
 
-       
+
+        public void ModificarElemento(Arroz producto1, Arroz producto2)
+        {
+            string nombreTabla = "Arroz";
+            AccesoDatos conexion = new AccesoDatos();
+            conexion.conexion.Open();
+            try
+            {
+                string consulta = $"UPDATE {nombreTabla} SET cantidad = @cantidad, marca = @marca, nombre = @nombre, tipo = @tipo, precio = @precio," +
+                                  $"origen = @origen, proveedor = @proveedor WHERE cantidad = @cantidad1 AND marca = @marca1 AND nombre = @nombre1 AND tipo = @tipo1 AND precio = @precio1 AND " +
+                                  $"origen = @origen1 AND proveedor = @proveedor1";
+
+                conexion.comando = new SqlCommand();
+                conexion.comando.Connection = conexion.conexion;
+                conexion.comando.CommandText = consulta;
+                // se agrega parámetros con los valores del objeto modificado
+                conexion.comando.Parameters.AddWithValue("@cantidad", producto2.Cantidad);
+                conexion.comando.Parameters.AddWithValue("@marca", producto2.Marca.ToString());
+                conexion.comando.Parameters.AddWithValue("@nombre", producto2.Nombre);
+                conexion.comando.Parameters.AddWithValue("@tipo", producto2.Tipo);
+                conexion.comando.Parameters.AddWithValue("@precio", producto2.Precio);
+                conexion.comando.Parameters.AddWithValue("@origen", producto2.Origen);
+                conexion.comando.Parameters.AddWithValue("@proveedor", producto2.Proveedor);
+                // Se agrega los parámetros de la busqueda del obejto en la tabla
+                conexion.comando.Parameters.AddWithValue("@cantidad1", producto1.Cantidad);
+                conexion.comando.Parameters.AddWithValue("@marca1", producto1.Marca.ToString());
+                conexion.comando.Parameters.AddWithValue("@nombre1", producto1.Nombre);
+                conexion.comando.Parameters.AddWithValue("@tipo1", producto1.Tipo);
+                conexion.comando.Parameters.AddWithValue("@precio1", producto1.Precio);
+                conexion.comando.Parameters.AddWithValue("@origen1", producto1.Origen);
+                conexion.comando.Parameters.AddWithValue("@proveedor1", producto1.Proveedor);
+
+                int filasAfectadas = conexion.comando.ExecuteNonQuery();
+
+                Console.WriteLine($"Se actualizaron elementos en la tabla {nombreTabla}. Filas afectadas: {filasAfectadas}");
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (conexion.conexion.State == System.Data.ConnectionState.Open) conexion.conexion.Close();
+            }
+
+
+        }
     }
 }

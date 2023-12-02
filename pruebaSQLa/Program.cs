@@ -8,7 +8,7 @@ internal class Program
     static void Main(string[] args)
     {
         Arroz arroz1 = new Arroz("Arroz Integral", "Arroz", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 25, 600f, "Argentina", "TOTI");
-        Arroz arroz2 = new Arroz("Arroz Integral", "Arroz", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 5, 600f, "Argentina", "BUDIN");
+        Arroz arroz2 = new Arroz("Arroz Integral", "Arroz", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 2, 1300f, "china", "pato");
 
         Gaseosa gaseosa2 = new Gaseosa("Seven up", "Gaseosa", (EMarca)Enum.Parse(typeof(EMarca), "SevenUp"), 3, 500f, 3f, "POMELO");
         Gaseosa gaseosa1 = new Gaseosa("Marisola", "Gaseosa", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 3, 1500f, 3f, "uva");
@@ -18,7 +18,8 @@ internal class Program
         Milanesas milanga2 = new Milanesas("CatMiau", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "SevenUp"), 533, 200f, "Gato", "China");
 
 
-        gaseosa1.ModificarElemento(gaseosa1, gaseosa2);
+        arroz1.ModificarElemento(arroz1, arroz2);
+
 
 
         Console.ReadKey();
