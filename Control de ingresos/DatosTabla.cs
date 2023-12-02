@@ -23,6 +23,25 @@ namespace Control_de_ingresos
 
             conexion.comando = new SqlCommand();
             conexion.comando.Connection = conexion.conexion;
+
+
+            StringBuilder columnas = new StringBuilder();
+            StringBuilder valores = new StringBuilder();
+
+            foreach (PropertyInfo propiedad in typeof(T).GetProperties())
+            {
+                string nombreColumna = propiedad.Name.ToLower();
+                var valor = propiedad.GetValue(objeto, null);
+
+                if (nombreColumna == "marca")
+                {
+                    valor = valor.ToString();
+                }
+                columnas.Append($"{nombreColumna}, ");
+                valores.Append($"@{nombreColumna}, ");
+
+                conexion.comando.Parameters.AddWithValue($"@{nombreColumna}", valor);
+            }
         }
 
         private static string ObtenerTabla(Type tipo)
