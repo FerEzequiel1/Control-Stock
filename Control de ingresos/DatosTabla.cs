@@ -142,7 +142,22 @@ namespace Control_de_ingresos
                     conexion.lector.Close();
                 }
             }
+            return list;
+        }
 
+        public static List<Producto> UnirListas()
+        {
+            List<Producto> list = new List<Producto>();
+
+            List<Arroz> arroz = DatosTabla<Arroz>.ObtenerTodos<Arroz>();
+            List<Gaseosa> gaseosa = DatosTabla<Gaseosa>.ObtenerTodos<Gaseosa>();
+            List<GaseosaPorMayor> gaseosaMayor = DatosTabla<GaseosaPorMayor>.ObtenerTodos<GaseosaPorMayor>();
+            List<Milanesas> milanesas = DatosTabla<Milanesas>.ObtenerTodos<Milanesas>();
+
+            list.AddRange(arroz);
+            list.AddRange(gaseosa);
+            list.AddRange(gaseosaMayor);
+            list.AddRange(milanesas);
 
             return list;
         }
