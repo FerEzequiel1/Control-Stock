@@ -93,7 +93,14 @@ namespace Control_de_ingresos
                 conexion.comando = new SqlCommand();
                 conexion.comando.CommandText= query;
                 conexion.comando.Connection = conexion.conexion;
-                SqlDataReader reader = conexion.comando.ExecuteReader();
+                conexion.lector = conexion.comando.ExecuteReader();
+
+                while(conexion.lector.Read()) 
+                {
+                    T objeto = Activator.CreateInstance<T>();
+                    var properties = typeof(T).GetProperties();
+
+                }
 
             }
             catch (Exception)
