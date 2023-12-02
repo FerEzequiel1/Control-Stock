@@ -78,5 +78,13 @@ namespace Control_de_ingresos
 
             return tabla;
         }
+
+        public static List<T> ObtenerTodos<T>()
+        {
+            List<T> list = new List<T>();
+
+
+            return list;
+        }
     }
 }
