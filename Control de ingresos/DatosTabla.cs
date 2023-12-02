@@ -12,8 +12,11 @@ using System.Threading.Tasks;
 
 namespace Control_de_ingresos
 {
-    public class DatosTabla <T>
+    public class DatosTabla<T>
     {
-       
+        public static void AgregarObjeto(T objeto)
+        {
+        }
+
     }
 }
