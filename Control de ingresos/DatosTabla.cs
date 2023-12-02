@@ -111,8 +111,16 @@ namespace Control_de_ingresos
                             string marca = valor.ToString();
                             valor = (EMarca)Enum.Parse(typeof(EMarca), marca);
                         }
+                       
+                        var property = properties.FirstOrDefault(p => string.Equals(p.Name, nombreColumna, StringComparison.OrdinalIgnoreCase));
 
-                        
+                        if (property != null && valor != DBNull.Value)
+                        {
+                            var convertedValue = Convert.ChangeType(valor, property.PropertyType);
+                            property.SetValue(objeto, convertedValue);
+                        }
+
+
                     }
 
                 }
