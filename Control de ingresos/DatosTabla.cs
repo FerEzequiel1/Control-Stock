@@ -174,6 +174,29 @@ namespace Control_de_ingresos
 
                 var properties = typeof(T).GetProperties();
 
+                // Construir la consulta de eliminación
+                var queryBuilder = new StringBuilder($"DELETE FROM {nombreTabla} WHERE ");
+
+                // Listas para almacenar los nombres de los atributos y sus valores del objeto
+                var atributos = new List<string>();
+                var valores = new List<object>();
+
+                foreach (var property in properties)
+                {
+                    var valor = property.GetValue(producto);
+                    if (valor != null && valor != DBNull.Value)
+                    {
+                        if (valor is Enum)
+                        {
+                            valor = valor.ToString();
+                        }
+                        atributos.Add(property.Name);
+                        valores.Add(valor);
+
+                        queryBuilder.Append($"{property.Name} = @{property.Name} AND ");
+
+                    }
+                }
 
             }
             catch (Exception)
