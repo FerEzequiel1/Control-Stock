@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.PortableExecutable;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,6 +100,20 @@ namespace Control_de_ingresos
                 {
                     T objeto = Activator.CreateInstance<T>();
                     var properties = typeof(T).GetProperties();
+
+                    for (int i = 0; i < conexion.lector.FieldCount; i++)
+                    {
+                        string nombreColumna = conexion.lector.GetName(i);
+                        object valor = conexion.lector.GetValue(i);
+
+                        if (nombreColumna == "marca")
+                        {
+                            string marca = valor.ToString();
+                            valor = (EMarca)Enum.Parse(typeof(EMarca), marca);
+                        }
+
+                        
+                    }
 
                 }
 
