@@ -162,5 +162,17 @@ namespace Control_de_ingresos
 
             return list;
         }
+
+        public static void EliminarProducto<T>(T producto)
+        {
+
+        }
+
+
+
+
+
+
+
     }
 }

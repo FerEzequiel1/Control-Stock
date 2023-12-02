@@ -12,10 +12,10 @@ internal class Program
         GaseosaPorMayor gaseosaPorMayor1 = new GaseosaPorMayor("Trini", "Gaseosa Mayorista", (EMarca)Enum.Parse(typeof(EMarca), "Vienissima"), 4, 300f, 500f, "Uva", 1000, "Si");
         Milanesas milanga = new Milanesas("Fernando", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Vacuno", "Paraguay");
 
-     
+
         List<Producto> list = DatosTabla<Producto>.UnirListas();
 
-        foreach (Producto a in list) 
+        foreach (Producto a in list)
         {
             Console.WriteLine(a.ToString());
         }
