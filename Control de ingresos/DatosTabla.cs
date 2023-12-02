@@ -154,6 +154,7 @@ namespace Control_de_ingresos
             List<GaseosaPorMayor> gaseosaMayor = DatosTabla<GaseosaPorMayor>.ObtenerTodos<GaseosaPorMayor>();
             List<Milanesas> milanesas = DatosTabla<Milanesas>.ObtenerTodos<Milanesas>();
 
+
             list.AddRange(arroz);
             list.AddRange(gaseosa);
             list.AddRange(gaseosaMayor);
