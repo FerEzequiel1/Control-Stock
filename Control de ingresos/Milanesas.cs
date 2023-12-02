@@ -124,11 +124,12 @@ namespace Control_de_ingresos
             try
             {
                 string consulta = $"UPDATE {nombreTabla} SET cantidad = @cantidad, marca = @marca, nombre = @nombre, tipo = @tipo, precio = @precio," +
-                                  $" origenAnimal = @origenAnimal, nacionalidad = @nacionalidad WHERE nacionalidad = @nacionalidad1, cantidad = @cantidad1, marca = @marca1," +
-                                  $"nombre = @nombre1, tipo = @tipo1, precio = @precio1, origenAnimal = @origenAnimal1, nacionalidad = @nacionalidad1";
+                                  $" origenAnimal = @origenAnimal, nacionalidad = @nacionalidad WHERE cantidad = @cantidad1 AND marca = @marca1 AND nombre = @nombre1 AND tipo = @tipo1 AND precio = @precio1 AND" +
+                                  $" origenAnimal = @origenAnimal1 AND nacionalidad = @nacionalidad1";
 
                 conexion.comando = new SqlCommand();
                 conexion.comando.Connection = conexion.conexion;
+                conexion.comando.CommandText = consulta;    
                 // se agrega parámetros con los valores del objeto modificado
                 conexion.comando.Parameters.AddWithValue("@cantidad", producto2.Cantidad);
                 conexion.comando.Parameters.AddWithValue("@marca", producto2.Marca.ToString());
@@ -146,12 +147,16 @@ namespace Control_de_ingresos
                 conexion.comando.Parameters.AddWithValue("@origenAnimal1", producto1.OrigenAnimal);
                 conexion.comando.Parameters.AddWithValue("@nacionalidad1", producto1.Nacionalidad);
 
+                int filasAfectadas = conexion.comando.ExecuteNonQuery();
 
+                Console.WriteLine($"Se actualizaron elementos en la tabla {nombreTabla}. Filas afectadas: {filasAfectadas}");
+
+                conexion.conexion.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                Console.WriteLine(e.Message);
             }
 
 
