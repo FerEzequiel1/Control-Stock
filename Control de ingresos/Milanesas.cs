@@ -150,13 +150,15 @@ namespace Control_de_ingresos
                 int filasAfectadas = conexion.comando.ExecuteNonQuery();
 
                 Console.WriteLine($"Se actualizaron elementos en la tabla {nombreTabla}. Filas afectadas: {filasAfectadas}");
-
-                conexion.conexion.Close();
             }
             catch (Exception e)
             {
 
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (conexion.conexion.State == System.Data.ConnectionState.Open) conexion.conexion.Close(); 
             }
 
 
