@@ -58,15 +58,15 @@ namespace Control_de_ingresos
         {
             string tabla = null;
 
-            if (tipo is Arroz)
+            if (tipo.Name == "Arroz")
             {
                 tabla = "Arroz";
             }
-            else if (tipo is Gaseosa)
+            else if (tipo.Name == "Gaseosa")
             {
                 tabla = "Gaseosa";
             }
-            else if (tipo is Milanesas)
+            else if (tipo.Name == "Milanesas")
             {
                 tabla = "Milanesas";
             }

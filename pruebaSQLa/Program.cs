@@ -7,14 +7,9 @@ internal class Program
 {
     static void Main(string[] args)
     {
-            AccesoDatos ado = new AccesoDatos();
+        Arroz arroz1 = new Arroz("Arroz blanco", "Arroz", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 3, 500f, "Argentina", "Pablo");
 
-            List<Arroz> list = ado.obtenerLista();
-
-            foreach (Arroz arroz in list)
-            {
-                Console.WriteLine(arroz.ToString());
-            }
+        DatosTabla<Arroz>.AgregarObjeto(arroz1);    
 
         Console.ReadKey();
     }
