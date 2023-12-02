@@ -16,6 +16,6 @@ internal class Program
                 Console.WriteLine(arroz.ToString());
             }
 
-            Console.ReadKey();
+        Console.ReadKey();
     }
 }

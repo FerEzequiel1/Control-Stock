@@ -18,5 +18,29 @@ namespace Control_de_ingresos
         {
         }
 
+        private static string ObtenerTabla(Type tipo)
+        {
+            string tabla = null;
+
+            if (tipo is Arroz)
+            {
+                tabla = "Arroz";
+            }
+            else if (tipo is Gaseosa)
+            {
+                tabla = "Gaseosa";
+            }
+            else if (tipo is Milanesas)
+            {
+                tabla = "Milanesas";
+            }
+            else
+            {
+                tabla = "GaseosaPorMayor";
+            }
+
+
+            return tabla;
+        }
     }
 }
