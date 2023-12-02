@@ -194,15 +194,35 @@ namespace Control_de_ingresos
                         valores.Add(valor);
 
                         queryBuilder.Append($"{property.Name} = @{property.Name} AND ");
-
                     }
                 }
 
+               
+                queryBuilder.Length -= 5; // Eliminar el último "AND " agregado
+                SqlCommand comando = new SqlCommand(queryBuilder.ToString(), conexion.conexion);
+
+                // Agregar parámetros con los valores de los atributos del objeto
+                for (int i = 0; i < atributos.Count; i++)
+                {
+                    comando.Parameters.AddWithValue($"@{atributos[i]}", valores[i]);
+                }
+
+                int filasEliminadas = comando.ExecuteNonQuery();
+
+                if (filasEliminadas > 0)
+                {
+                    Console.WriteLine($"Se eliminó la fila en la tabla {nombreTabla}");
+                }
+                else
+                {
+                    Console.WriteLine("No se encontró la fila para eliminar");
+                }
+
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                Console.WriteLine(e.Message);
             }
 
         }
