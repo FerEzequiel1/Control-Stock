@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Control_de_ingresos
     /// Clase hija de Producto. Comparte sus mismas caracteristicas y métodos agregando los propios 
     /// para completar la clase
     /// </summary>
-    public class Milanesas :Producto, IPrecioTotal
+    public class Milanesas :Producto, IModificarProducto<Milanesas>
     {
         internal string origenAnimal;
         internal string nacionalidad;
@@ -117,6 +118,23 @@ namespace Control_de_ingresos
 
         public void ModificarElemento(Milanesas producto1, Milanesas producto2)
         {
+            string nombreTabla = "Milanesas"; // Reemplaza con el nombre de tu tabla en la base de datos
+            AccesoDatos conexion = new AccesoDatos();
+            conexion.conexion.Open();
+            try
+            {
+                string consulta = $"UPDATE {nombreTabla} SET cantidad = @cantidad, marca = @marca, nombre = @nombre, tipo = @tipo, precio = @precio," +
+                                  $" origenAnimal = @origenAnimal, nacionalidad = @nacionalidad WHERE nacionalidad = @nacionalidad1";
+
+               
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
 
         }
