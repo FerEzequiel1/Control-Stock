@@ -11,7 +11,7 @@ namespace Control_de_ingresos
     /// Clase hija de Producto. Comparte sus mismas caracteristicas y métodos agregando los propios 
     /// para completar la clase
     /// </summary>
-    public class Milanesas :Producto
+    public class Milanesas :Producto, IPrecioTotal
     {
         internal string origenAnimal;
         internal string nacionalidad;
@@ -112,6 +112,13 @@ namespace Control_de_ingresos
         public static Milanesas operator +(Milanesas a, Milanesas b)
         {
             return new Milanesas("Bandeja de milanesas", "Variedad", (EMarca)Enum.Parse(typeof(EMarca), "Trapal"), a.Cantidad + b.Cantidad, (a.Precio + b.Precio) * 0.7f, $"{a.origenAnimal}/{b.OrigenAnimal}", $"{a.Nacionalidad}/{b.Nacionalidad}");
+        }
+
+
+        public void ModificarElemento(Milanesas producto1, Milanesas producto2)
+        {
+
+
         }
     }
 }
