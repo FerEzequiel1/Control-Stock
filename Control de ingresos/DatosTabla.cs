@@ -83,6 +83,25 @@ namespace Control_de_ingresos
         {
             List<T> list = new List<T>();
 
+            AccesoDatos conexion = new AccesoDatos();
+            conexion.conexion.Open();
+
+            try
+            {
+                string nombreTabla = ObtenerTabla(typeof(T));
+                string query = $"SELECT * FROM {nombreTabla}";
+                conexion.comando = new SqlCommand();
+                conexion.comando.CommandText= query;
+                conexion.comando.Connection = conexion.conexion;
+                SqlDataReader reader = conexion.comando.ExecuteReader();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
 
             return list;
         }
