@@ -13,9 +13,9 @@ internal class Program
         Milanesas milanga = new Milanesas("Fernando", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Vacuno", "Paraguay");
 
      
-        List<Milanesas> list = DatosTabla<Milanesas>.ObtenerTodos<Milanesas>();
+        List<Producto> list = DatosTabla<Producto>.UnirListas();
 
-        foreach (Milanesas a in list) 
+        foreach (Producto a in list) 
         {
             Console.WriteLine(a.ToString());
         }
