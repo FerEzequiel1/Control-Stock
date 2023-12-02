@@ -16,6 +16,13 @@ namespace Control_de_ingresos
     {
         public static void AgregarObjeto(T objeto)
         {
+            string nombreTabla = ObtenerTabla(typeof(T));
+
+            AccesoDatos conexion = new AccesoDatos();
+            conexion.conexion.Open();
+
+            conexion.comando = new SqlCommand();
+            conexion.comando.Connection = conexion.conexion;
         }
 
         private static string ObtenerTabla(Type tipo)
