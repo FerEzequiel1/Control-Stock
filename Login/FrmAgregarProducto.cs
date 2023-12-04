@@ -66,6 +66,7 @@ namespace Aplicacion
                 rta = cmbMarca.SelectedItem.ToString();
 
             }
+            
             else if (cmbMarca.Text == "Ingrese una opción")
             {
                 MessageBox.Show($"Debe seleccionar una marca.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);

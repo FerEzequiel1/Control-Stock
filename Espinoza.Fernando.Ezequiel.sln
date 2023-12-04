@@ -14,7 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución",
 		..\..\..\OneDrive\Escritorio\ojo.png = ..\..\..\OneDrive\Escritorio\ojo.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pruebaSQLa", "pruebaSQLa\pruebaSQLa.csproj", "{E1774507-3E3A-4AAF-B66D-DC06E50D545F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pruebaSQLa", "pruebaSQLa\pruebaSQLa.csproj", "{E1774507-3E3A-4AAF-B66D-DC06E50D545F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{D521251D-A888-4512-9D8B-6823555A841B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{E1774507-3E3A-4AAF-B66D-DC06E50D545F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1774507-3E3A-4AAF-B66D-DC06E50D545F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1774507-3E3A-4AAF-B66D-DC06E50D545F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D521251D-A888-4512-9D8B-6823555A841B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D521251D-A888-4512-9D8B-6823555A841B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D521251D-A888-4512-9D8B-6823555A841B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D521251D-A888-4512-9D8B-6823555A841B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

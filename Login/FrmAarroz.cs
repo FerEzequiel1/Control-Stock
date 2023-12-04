@@ -29,7 +29,7 @@ namespace Aplicacion
             this.nUDCantidad.Value = producto.Cantidad;
             this.nUDPrecio.Value = (decimal)producto.Precio;
             this.txtOrigen.Text = producto.Origen;
-            this.txtProveedor.Text = producto.Porveedor;
+            this.txtProveedor.Text = producto.Proveedor;
             this.modifica = modifica;
 
         }
