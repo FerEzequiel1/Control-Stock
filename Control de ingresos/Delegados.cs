@@ -8,6 +8,8 @@ namespace Control_de_ingresos
 {
     public  class Delegados
     {
-        public delegate void mensajeDelegado(int mensaje);
+        public delegate void mensajeDelegado(string edad);
+        public delegate void mensajeNombreTipo();
+        public delegate void EliminarDeBase(Producto producto);
     }
 }

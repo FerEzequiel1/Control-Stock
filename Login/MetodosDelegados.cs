@@ -8,13 +8,14 @@ namespace Aplicacion
 {
     public static class MetodosDelegados
     {
-        public static void mensajeDelegado(int mensaje)
+        public static void mensajeMarca(string mensaje)
         {
-            MessageBox.Show($"1", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            MessageBox.Show($"{mensaje}", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
-        public static void mensajeDelegad2(int mensaje)
+        public static void mensajeNombreTipo()
         {
-            MessageBox.Show($"2.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            MessageBox.Show($"Debe completar el nombre y/o tipo", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
+
     }
 }

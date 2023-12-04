@@ -9,36 +9,47 @@ namespace Control_de_ingresos
 {
     public class ManejadorEventos
     {
+        private string marca;
+        private int nombreTipo;
 
-        private int edad;
-        public event mensajeDelegado mensaje1;
-        public event mensajeDelegado mensaje2;
+
+        public event mensajeDelegado mensajeMarca;
+        public event mensajeNombreTipo mensajeNombreTipo;
+
+
 
         public ManejadorEventos()
         {
-            
         }
 
-        public int Edad
+
+
+        public string Marca
         {
 
-            get { return this.edad; }
+            get { return this.marca; }
             set
             {
-                if (value == 2)
+                if (value != null)
                 {
-                    mensaje2.Invoke(value);
-                }
-                else
-                {
-                    if (value == 1)
-                    {
-                        mensaje1.Invoke(value);
-                    }
+                    mensajeMarca.Invoke(value);
                 }
             }
 
         }
 
+        public int NombreTipo
+        {
+
+            get { return this.nombreTipo; }
+            set
+            {
+                if (value == 0)
+                {
+                    mensajeNombreTipo.Invoke();
+                }
+            }
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    internal  static class AccesoDelegadoscs
+    public static class AccesoDelegadoscs
     {
 
         public static void mensajeDelegado(int mensaje)

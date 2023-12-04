@@ -28,9 +28,8 @@ namespace WinFormsApp1
             Persona persona = new Persona();
             persona.mensaje1 += AccesoDelegadoscs.mensajeDelegado;
             persona.mensaje2 += AccesoDelegadoscs.mensajeDelegad2;
-            persona.Edad = 1;
+            persona.Edad = nRet;
 
-            
         }
         
     }

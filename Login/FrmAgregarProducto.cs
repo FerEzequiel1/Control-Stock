@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -61,25 +62,20 @@ namespace Aplicacion
         {
             string rta = "no";
 
-            ManejadorEventos persona = new ManejadorEventos();
-            persona.mensaje1 += MetodosDelegados.mensajeDelegado;
-            persona.mensaje2 += MetodosDelegados.mensajeDelegad2;
-            persona.Edad = 1;
+            ManejadorEventos evento = new ManejadorEventos();
+            evento.mensajeMarca += MetodosDelegados.mensajeMarca;
+          
 
             if (cmbMarca.SelectedItem != null)
             {
                 rta = cmbMarca.SelectedItem.ToString();
 
             }
+            else 
+            {
+                evento.Marca = "Debe seleccionar una marca.";
+            }
             
-            else if (cmbMarca.Text == "Ingrese una opción")
-            {
-                MessageBox.Show($"Debe seleccionar una marca.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            }
-            else
-            {
-                MessageBox.Show($"Debe seleccionar una marca.{this.cmbMarca.Text} no aceptada", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            }
 
             return rta;
         }
@@ -92,14 +88,16 @@ namespace Aplicacion
         protected bool VerificarNombreTipo()
         {
             bool rta = false;
+            ManejadorEventos evento = new ManejadorEventos();
+            evento.mensajeNombreTipo += MetodosDelegados.mensajeNombreTipo;
 
-            if(this.txtNombre.Text.Length > 0 && this.txtTipo.Text.Length>0)
+            if (this.txtNombre.Text.Length > 0 && this.txtTipo.Text.Length>0)
             {
                 rta = true;
             }
             else
             {
-                MessageBox.Show($"Debe completar el nombre y/o tipo", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                evento.NombreTipo = 0;
             }
 
             return rta;
