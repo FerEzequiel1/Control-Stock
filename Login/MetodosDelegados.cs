@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Control_de_ingresos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,10 @@ namespace Aplicacion
         public static void mensajeEliminado(string s)
         {
             MessageBox.Show($"Producto eliminado con éxito", "Producto eliminado.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public static void ElimnarProductoPorDelegado(Producto producto)
+        {
+            DatosTabla<Producto>.EliminarProducto(producto);
         }
 
     }

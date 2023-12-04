@@ -435,15 +435,15 @@ namespace Aplicacion
                     {
                         Producto producto = this.listaDeProductos.ListaDeProductos[indice];
 
-                        if (listaDeProductos - producto)
-                        {
+                        
                             ManejadorEventos evento = new ManejadorEventos();
-                            evento.EliminarProducto += DatosTabla<Producto>.EliminarProducto;
+                            evento.EliminarProducto += MetodosDelegados.ElimnarProductoPorDelegado;
                             evento.mensajeMarca += MetodosDelegados.mensajeEliminado;
                             evento.Producto = producto;
                             evento.Marca = "Eliminar";
-                            PublicarProductos();
-                        }
+                            if(listaDeProductos - producto) PublicarProductos();
+
+
                     }
                 }
                 else

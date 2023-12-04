@@ -21,7 +21,9 @@ internal class Program
         Milanesas milanga = new Milanesas("Fernando", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Vacuno", "Paraguay");
         Milanesas milanga2 = new Milanesas("CatMiau", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "SevenUp"), 533, 200f, "Gato", "China");
 
-        DatosTabla<GaseosaPorMayor>.EliminarProducto(gaseosaPorMayor1);
+        Arroz arroz22 = new Arroz("Arroz blanco", "Arroz", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 3, 500f, "Brasil", "Pablo");
+
+        DatosTabla<Arroz>.AgregarObjeto(arroz22);
         
 
 
