@@ -16,6 +16,10 @@ namespace Aplicacion
         {
             MessageBox.Show($"Debe completar el nombre y/o tipo", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
+        public static void mensajeEliminado(string s)
+        {
+            MessageBox.Show($"Producto eliminado con éxito", "Producto eliminado.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
     }
 }

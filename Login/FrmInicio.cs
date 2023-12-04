@@ -437,7 +437,11 @@ namespace Aplicacion
 
                         if (listaDeProductos - producto)
                         {
-                            MessageBox.Show($"Producto eliminado con éxito", "Producto eliminado.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ManejadorEventos evento = new ManejadorEventos();
+                            evento.EliminarProducto += DatosTabla<Producto>.EliminarProducto;
+                            evento.mensajeMarca += MetodosDelegados.mensajeEliminado;
+                            evento.Producto = producto;
+                            evento.Marca = "Eliminar";
                             PublicarProductos();
                         }
                     }

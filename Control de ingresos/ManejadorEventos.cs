@@ -11,10 +11,13 @@ namespace Control_de_ingresos
     {
         private string marca;
         private int nombreTipo;
+        private Producto producto;
 
 
         public event mensajeDelegado mensajeMarca;
         public event mensajeNombreTipo mensajeNombreTipo;
+        public event EliminarDeBase EliminarProducto;
+
 
 
 
@@ -32,7 +35,20 @@ namespace Control_de_ingresos
             {
                 if (value != null)
                 {
-                    mensajeMarca.Invoke(value);
+                   mensajeMarca.Invoke(value);
+                }
+            }
+
+        }
+        public Producto Producto
+        {
+
+            get { return this.producto; }
+            set
+            {
+                if (value is Producto)
+                {
+                    EliminarProducto.Invoke(value);
                 }
             }
 
