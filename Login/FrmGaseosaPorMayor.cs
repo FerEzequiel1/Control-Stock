@@ -30,7 +30,7 @@ namespace Aplicacion
             this.nUDPrecio.Value = (decimal)producto.Precio;
             this.nUDUnidades.Value = producto.Unidades;
             this.txtArtesanal.Text = producto.Artesanal;
-            this.nUDMLL.Value = (decimal)producto.Mll;
+            this.nUDMLL.Value = (decimal)producto.Mililitros;
             this.txtSabor.Text = producto.Sabor;
             this.modifica = modifica;
 

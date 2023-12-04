@@ -61,6 +61,11 @@ namespace Aplicacion
         {
             string rta = "no";
 
+            ManejadorEventos persona = new ManejadorEventos();
+            persona.mensaje1 += MetodosDelegados.mensajeDelegado;
+            persona.mensaje2 += MetodosDelegados.mensajeDelegad2;
+            persona.Edad = 1;
+
             if (cmbMarca.SelectedItem != null)
             {
                 rta = cmbMarca.SelectedItem.ToString();

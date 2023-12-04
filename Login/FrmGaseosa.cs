@@ -27,7 +27,7 @@ namespace Aplicacion
             this.cmbMarca.SelectedIndex = indiceMarca;
             this.nUDCantidad.Value = producto.Cantidad;
             this.nUDPrecio.Value = (decimal)producto.Precio;
-            this.nUDMililitros.Value = (decimal)producto.Mll;
+            this.nUDMililitros.Value = (decimal)producto.Mililitros;
             this.txtSabor.Text = producto.Sabor;
             this.modifica = modifica;
         }

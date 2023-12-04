@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static WinFormsApp1.Delegados;
+using static Control_de_ingresos.Delegados;
 
-namespace WinFormsApp1
+namespace Control_de_ingresos
 {
-    public class Persona
+    public class ManejadorEventos
     {
+
         private int edad;
         public event mensajeDelegado mensaje1;
         public event mensajeDelegado mensaje2;
 
-        public Persona()
+        public ManejadorEventos()
         {
-           
+            
         }
 
-        public int Edad {
+        public int Edad
+        {
 
             get { return this.edad; }
             set
@@ -29,15 +31,14 @@ namespace WinFormsApp1
                 }
                 else
                 {
-                    if(value == 1)
+                    if (value == 1)
                     {
-                        mensaje1.Invoke(value); 
+                        mensaje1.Invoke(value);
                     }
                 }
             }
-        
+
         }
 
-       
     }
 }
