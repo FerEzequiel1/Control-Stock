@@ -182,9 +182,15 @@ namespace Control_de_ingresos
             return list;
         }
 
+        /// <summary>
+        /// Metodo para unir listas de diferentes tipos de productos en una lista unica.
+        /// </summary>
+        /// <returns>Lista que contiene todos los productos de las diferentes tablas en la base de datos.</returns>
         public static List<Producto> UnirListas()
         {
             List<Producto> list = new List<Producto>();
+
+            // Se obtiene la lista completa de los productos segun su clase y se agregan a la list principal para juntar a todos
 
             List<Arroz> arroz = DatosTabla<Arroz>.ObtenerTodos<Arroz>();
             List<Gaseosa> gaseosa = DatosTabla<Gaseosa>.ObtenerTodos<Gaseosa>();
