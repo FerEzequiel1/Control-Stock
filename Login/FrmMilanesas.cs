@@ -58,6 +58,7 @@ namespace Aplicacion
                 {
                     base.agregar(milanesa);
                     base.LimpiarCampos();
+
                     if (modifica)
                     {
                         MessageBox.Show($"El producto ha sido modificado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);

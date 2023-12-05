@@ -66,10 +66,15 @@ namespace Aplicacion
                 {
                     base.agregar(gaseosaPorMayor);
                     base.LimpiarCampos();
-                    MessageBox.Show($"El producto ha sido ingresado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     if (modifica)
                     {
+                        MessageBox.Show($"El producto ha sido modificado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"El producto ha sido ingresado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
