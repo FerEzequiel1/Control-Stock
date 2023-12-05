@@ -387,7 +387,7 @@ namespace Aplicacion
                     ActualizarLista(frmAarroz);
                     Producto productoModificado = ultimoProductoIngresado();
                     
-                    if (productoModificado != producto)
+                    if (frmAarroz.producto != producto)
                     {
                         productoArroz.ModificarElemento(productoArroz,(Arroz)productoModificado);
                         this.listaDeProductos.ListaDeProductos.Remove(producto);
@@ -403,8 +403,16 @@ namespace Aplicacion
                         FrmGaseosa frmGaseosa = new FrmGaseosa(this.listaDeProductos, productoGaseosa, true);
                         frmGaseosa.StartPosition = FormStartPosition.CenterScreen;
                         frmGaseosa.ShowDialog();
+
                         ActualizarLista(frmGaseosa);
-                        
+                        Producto productoModificado = ultimoProductoIngresado();
+
+                        if (frmGaseosa.producto != producto)
+                        {
+                            productoGaseosa.ModificarElemento(productoGaseosa, (Gaseosa)productoModificado);
+                            this.listaDeProductos.ListaDeProductos.Remove(producto);
+                        }
+
                     }
                     else
                     {

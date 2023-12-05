@@ -32,6 +32,7 @@ namespace Aplicacion
             this.txtOrigen.Text = producto.Origen;
             this.txtProveedor.Text = producto.Proveedor;
             this.modifica = modifica;
+            this.producto = producto;
 
         }
         public FrmAarroz(ListaProductos lista) : base(lista)
