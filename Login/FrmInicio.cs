@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace Aplicacion
@@ -429,19 +430,40 @@ namespace Aplicacion
                 int indice = this.lstProductos.SelectedIndex;
                 if (indice >= 0)
                 {
+                    //Producto productoSeleccionado = (Producto)lstProductos.SelectedItem;
+
                     DialogResult resultado = MessageBox.Show("¿Realmente desea eliminar el producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (resultado == DialogResult.Yes)
                     {
-                        Producto producto = this.listaDeProductos.ListaDeProductos[indice];
-
+                        ManejadorEventos evento = new ManejadorEventos();
                         
-                            ManejadorEventos evento = new ManejadorEventos();
-                            evento.EliminarProducto += MetodosDelegados.ElimnarProductoPorDelegado;
-                            evento.mensajeMarca += MetodosDelegados.mensajeEliminado;
-                            evento.Producto = producto;
-                            evento.Marca = "Eliminar";
-                            if(listaDeProductos - producto) PublicarProductos();
+                        Producto producto = (Producto)lstProductos.SelectedItem;
+
+                        if (producto is Arroz)
+                        {
+                            evento.EliminarProductoArroz += MetodosDelegados.ElimnarProductoPorDelegadoArroz;
+                            evento.Arroz = (Arroz)producto;
+                        }
+                        else if (producto is Gaseosa)
+                        {
+                            evento.EliminarProductoGaseosa += MetodosDelegados.ElimnarProductoPorDelegadoGaseosa;
+                            evento.Gaseosa = (Gaseosa)producto;
+                        }
+                        else if (producto is GaseosaPorMayor)
+                        {
+                            evento.EliminarProductoGaseosaMayor += MetodosDelegados.ElimnarProductoPorDelegadoGaseosaPorMayor;
+                            evento.GaseosaPorMayor = (GaseosaPorMayor)producto;
+                        }
+                        else
+                        {
+                            evento.EliminarProductoMilanesa += MetodosDelegados.ElimnarProductoPorDelegadoMilanesa;
+                            evento.Milanesas = (Milanesas)producto;
+                        }
+
+                        evento.mensajeMarca += MetodosDelegados.mensajeEliminado;
+                        evento.Marca = "Eliminar";
+                        if(listaDeProductos - producto) PublicarProductos();
 
 
                     }

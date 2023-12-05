@@ -11,12 +11,21 @@ namespace Control_de_ingresos
     {
         private string marca;
         private int nombreTipo;
-        private Producto producto;
+
+        private Arroz arroz;
+        private Gaseosa gaseosa;
+        private GaseosaPorMayor gaseosaPorMayor;
+        private Milanesas milanesa;
 
 
         public event mensajeDelegado mensajeMarca;
         public event mensajeNombreTipo mensajeNombreTipo;
-        public event EliminarDeBase EliminarProducto;
+
+        public event EliminarDeBaseArroz EliminarProductoArroz;
+        public event EliminarDeBaseGaseosa EliminarProductoGaseosa;
+        public event EliminarDeBaseGaseosaPorMayor EliminarProductoGaseosaMayor;
+        public event EliminarDeBaseArrozMilanesa EliminarProductoMilanesa;
+
 
 
 
@@ -40,15 +49,57 @@ namespace Control_de_ingresos
             }
 
         }
-        public Producto Producto
+        public Arroz Arroz
         {
 
-            get { return this.producto; }
+            get { return this.arroz; }
             set
             {
-                if (value is Producto)
+                if (value is Arroz)
                 {
-                    EliminarProducto.Invoke(value);
+                    EliminarProductoArroz.Invoke(value);
+                }
+            }
+
+        }
+
+        public Gaseosa Gaseosa
+        {
+
+            get { return this.gaseosa; }
+            set
+            {
+                if (value is Gaseosa)
+                {
+                    EliminarProductoGaseosa.Invoke(value);
+                }
+            }
+
+        }
+
+        public GaseosaPorMayor GaseosaPorMayor
+        {
+
+            get { return this.gaseosaPorMayor; }
+            set
+            {
+                if (value is GaseosaPorMayor)
+                {
+                    EliminarProductoGaseosaMayor.Invoke(value);
+                }
+            }
+
+        }
+
+        public Milanesas Milanesas
+        {
+
+            get { return this.milanesa; }
+            set
+            {
+                if (value is Milanesas)
+                {
+                    EliminarProductoMilanesa.Invoke(value);
                 }
             }
 

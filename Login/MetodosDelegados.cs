@@ -21,9 +21,23 @@ namespace Aplicacion
         {
             MessageBox.Show($"Producto eliminado con éxito", "Producto eliminado.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        public static void ElimnarProductoPorDelegado(Producto producto)
+
+
+        public static void ElimnarProductoPorDelegadoArroz(Arroz producto)
         {
-            DatosTabla<Producto>.EliminarProducto(producto);
+            DatosTabla<Arroz>.EliminarProducto(producto);
+        }
+        public static void ElimnarProductoPorDelegadoGaseosa(Gaseosa producto)
+        {
+            DatosTabla<Gaseosa>.EliminarProducto(producto);
+        }
+        public static void ElimnarProductoPorDelegadoMilanesa(Milanesas producto)
+        {
+            DatosTabla<Milanesas>.EliminarProducto(producto);
+        }
+        public static void ElimnarProductoPorDelegadoGaseosaPorMayor(GaseosaPorMayor producto)
+        {
+            DatosTabla<GaseosaPorMayor>.EliminarProducto(producto);
         }
 
     }

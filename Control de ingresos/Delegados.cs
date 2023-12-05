@@ -10,6 +10,11 @@ namespace Control_de_ingresos
     {
         public delegate void mensajeDelegado(string edad);
         public delegate void mensajeNombreTipo();
-        public delegate void EliminarDeBase(Producto producto);
+
+        public delegate void EliminarDeBaseArroz(Arroz producto);
+        public delegate void EliminarDeBaseGaseosa(Gaseosa producto);
+        public delegate void EliminarDeBaseGaseosaPorMayor(GaseosaPorMayor producto);
+        public delegate void EliminarDeBaseArrozMilanesa(Milanesas producto);
+
     }
 }
