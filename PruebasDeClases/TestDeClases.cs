@@ -72,6 +72,7 @@ namespace PruebasDeClases
             Assert.IsFalse(resultado);
         }
 
+        [Test]
         public void MismoProductoMilanesaOK()
         {
             Milanesas milanesa1 = new Milanesas("Fernando", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Vacuno", "Brasil");
