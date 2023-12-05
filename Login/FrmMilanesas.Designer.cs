@@ -47,6 +47,7 @@
             gpArmado.Controls.Add(txtOrigenAnimal);
             gpArmado.Controls.Add(label6);
             gpArmado.Controls.Add(label7);
+            gpArmado.Controls.SetChildIndex(btnCancelar, 0);
             gpArmado.Controls.SetChildIndex(txtNombre, 0);
             gpArmado.Controls.SetChildIndex(txtTipo, 0);
             gpArmado.Controls.SetChildIndex(nUDCantidad, 0);
@@ -57,6 +58,10 @@
             gpArmado.Controls.SetChildIndex(label6, 0);
             gpArmado.Controls.SetChildIndex(txtOrigenAnimal, 0);
             gpArmado.Controls.SetChildIndex(txtNacionalidad, 0);
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // label6
             // 

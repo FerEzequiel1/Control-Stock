@@ -15,6 +15,7 @@ namespace Aplicacion
     public partial class FrmMilanesas : FrmAgregarProducto
     {
         bool modifica = false;
+        public Milanesas producto;
         public FrmMilanesas(ListaProductos lista, Milanesas producto, bool modifica) : this(lista)
         {
             int indiceMarca = Array.IndexOf(Enum.GetValues(typeof(EMarca)), producto.Marca);
@@ -26,6 +27,7 @@ namespace Aplicacion
             this.txtOrigenAnimal.Text = producto.OrigenAnimal;
             this.txtNacionalidad.Text = producto.Nacionalidad;
             this.modifica = modifica;
+            this.producto = producto;   
 
         }
         public FrmMilanesas(ListaProductos lista) : base(lista)
@@ -45,7 +47,7 @@ namespace Aplicacion
             if (marca != "no" && nombre)
             {
                 Milanesas milanesa = new Milanesas(base.txtNombre.Text, base.txtTipo.Text, (EMarca)Enum.Parse(typeof(EMarca), marca), (int)base.nUDCantidad.Value, (float)base.nUDPrecio.Value, this.txtOrigenAnimal.Text, this.txtNacionalidad.Text);
-
+                producto=milanesa;
                 //Se verifica que el producto ingresado no exita en la listaDeProductos del formulario principal
                 //Si esta no se agrega y se informa.Caso contrario lo agrega y se recetean los campos del formulario
                 if (base.Comparar(milanesa))
@@ -56,12 +58,31 @@ namespace Aplicacion
                 {
                     base.agregar(milanesa);
                     base.LimpiarCampos();
-                    MessageBox.Show($"El producto ha sido ingresado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (modifica)
                     {
+                        MessageBox.Show($"El producto ha sido modificado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
+                    else
+                    {
+                        MessageBox.Show($"El producto ha sido ingresado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
+            }
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            if (modifica)
+            {
+                this.Close();
+
+            }
+            else
+            {
+
+                base.LimpiarCampos();
+                this.modifica = false;
             }
         }
     }

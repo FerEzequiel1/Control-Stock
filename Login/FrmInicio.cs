@@ -441,7 +441,17 @@ namespace Aplicacion
                             FrmMilanesas frmMilanesa = new FrmMilanesas(this.listaDeProductos, milanesa, true);
                             frmMilanesa.StartPosition = FormStartPosition.CenterScreen;
                             frmMilanesa.ShowDialog();
+
                             ActualizarLista(frmMilanesa);
+
+                            Producto productoModificado = ultimoProductoIngresado();
+
+                            if (frmMilanesa.producto != producto)
+                            {
+                                this.listaDeProductos.ListaDeProductos.Remove(producto);
+                                milanesa.ModificarElemento(milanesa, (Milanesas)productoModificado);
+                                PublicarProductos();
+                            }
                         }
                     }
                 }
