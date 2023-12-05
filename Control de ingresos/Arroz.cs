@@ -42,8 +42,6 @@ namespace Control_de_ingresos
         public string Proveedor { get => proveedor; set => proveedor = value; }
 
 
-       
-
         /// <summary>
         /// Sobrecarga del metodo Mostrar(),llama al metodo Mostrar()Padre para luego concatenarle mediante
         /// un StringBuilder datos de la clase propia
