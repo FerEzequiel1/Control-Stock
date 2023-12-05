@@ -46,7 +46,7 @@ namespace Aplicacion
 
         private void FrmInicio_Load(object sender, EventArgs e)
         {
-           
+
             DateTime fechaActual = DateTime.Now;
             this.lblUsuario.Text = $"{this.usuario.ToString()} {fechaActual.Day}/{fechaActual.Month}/{fechaActual.Year}";
             UsuariosLogeados(this.usuario);
@@ -56,13 +56,13 @@ namespace Aplicacion
 
             Task cargaDeProductos = new Task(() =>
             {
-                this.listaDeProductos =  new ListaProductos(DatosTabla<Producto>.UnirListas());
+                this.listaDeProductos = new ListaProductos(DatosTabla<Producto>.UnirListas());
             });
             cargaDeProductos.Start();
             cargaDeProductos.Wait();
 
 
-               
+
             PublicarProductos();
 
         }
@@ -258,7 +258,7 @@ namespace Aplicacion
 
             if (this.guardado == false)
             {
-                DialogResult guardado = MessageBox.Show("¿Desea cerrar el formulario sin guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult guardado = MessageBox.Show("¿Desea cerrar el formulario sin guardar una copia?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (guardado == DialogResult.No)
                 {
                     e.Cancel = true; // Cancelar el cierre del formulario si escoje guardar
@@ -324,44 +324,44 @@ namespace Aplicacion
         /// Se guarda en un un archivo HML una listaDeProductos para que quede en forma local y poderla levantar desdel este Formulario de inicio en el momento del Load,
         /// Se usa todas las clases tipo producto para tener un variado de productos y se serializa con la instancia de clase Producto.Serializar.
         /// </summary>
-        private void GenerarListas()
-        {
-            Arroz arroz1 = new Arroz("Arroz blanco", "Arroz", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 3, 500f, "Brasil", "Pablo");
-            Arroz arroz2 = new Arroz("Arroz Integral", "Arroz", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 5, 600f, "Argentina", "Chacra Gonzalez");
-            Arroz comboArroz = arroz1 + arroz2;
+        //private void GenerarListas()
+        //{
+        //    Arroz arroz1 = new Arroz("Arroz blanco", "Arroz", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 3, 500f, "Brasil", "Pablo");
+        //    Arroz arroz2 = new Arroz("Arroz Integral", "Arroz", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 5, 600f, "Argentina", "Chacra Gonzalez");
+        //    Arroz comboArroz = arroz1 + arroz2;
 
 
-            Gaseosa gaseosa1 = new Gaseosa("Seven up", "Gaseosa", (EMarca)Enum.Parse(typeof(EMarca), "SevenUp"), 3, 500f, 3f, "Lima");
-            Gaseosa gaseosa2 = new Gaseosa("Pepsi", "Gaseosa", (EMarca)Enum.Parse(typeof(EMarca), "Pepsi"), 3, 500f, 3f, "Cola");
+        //    Gaseosa gaseosa1 = new Gaseosa("Seven up", "Gaseosa", (EMarca)Enum.Parse(typeof(EMarca), "SevenUp"), 3, 500f, 3f, "Lima");
+        //    Gaseosa gaseosa2 = new Gaseosa("Pepsi", "Gaseosa", (EMarca)Enum.Parse(typeof(EMarca), "Pepsi"), 3, 500f, 3f, "Cola");
 
-            GaseosaPorMayor gaseosaPorMayor1 = new GaseosaPorMayor("Trini", "Gaseosa Mayorista", (EMarca)Enum.Parse(typeof(EMarca), "Vienissima"), 4, 300f, 0.500f, "Uva", 1000, "Si");
-            GaseosaPorMayor gaseosaPorMayor2 = new GaseosaPorMayor("Don Antonio", "Gaseosa Mayorista", (EMarca)Enum.Parse(typeof(EMarca), "Swift"), 4, 150f, 0.500f, "Naranja", 500, "No");
-            GaseosaPorMayor gaseosaPorMayor3 = gaseosaPorMayor1 + gaseosaPorMayor2;
+        //    GaseosaPorMayor gaseosaPorMayor1 = new GaseosaPorMayor("Trini", "Gaseosa Mayorista", (EMarca)Enum.Parse(typeof(EMarca), "Vienissima"), 4, 300f, 0.500f, "Uva", 1000, "Si");
+        //    GaseosaPorMayor gaseosaPorMayor2 = new GaseosaPorMayor("Don Antonio", "Gaseosa Mayorista", (EMarca)Enum.Parse(typeof(EMarca), "Swift"), 4, 150f, 0.500f, "Naranja", 500, "No");
+        //    GaseosaPorMayor gaseosaPorMayor3 = gaseosaPorMayor1 + gaseosaPorMayor2;
 
-            Milanesas milanesa1 = new Milanesas("Fernando", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Vacuno", "Brasil");
-            Milanesas milanesa2 = new Milanesas("Franco", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Bovino", "Argentino");
-            Milanesas bandeja = milanesa1 + milanesa2;
+        //    Milanesas milanesa1 = new Milanesas("Fernando", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Vacuno", "Brasil");
+        //    Milanesas milanesa2 = new Milanesas("Franco", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Bovino", "Argentino");
+        //    Milanesas bandeja = milanesa1 + milanesa2;
 
-            List<Producto> productos = new List<Producto>();
+        //    List<Producto> productos = new List<Producto>();
 
-            productos.Add(arroz1);
-            productos.Add(arroz2);
-            productos.Add(comboArroz);
-            productos.Add(gaseosa1);
-            productos.Add(gaseosa2);
-            productos.Add(gaseosaPorMayor1);
-            productos.Add(gaseosaPorMayor2);
-            productos.Add(gaseosaPorMayor3);
-            productos.Add(milanesa1);
-            productos.Add(milanesa2);
-            productos.Add(bandeja);
+        //    productos.Add(arroz1);
+        //    productos.Add(arroz2);
+        //    productos.Add(comboArroz);
+        //    productos.Add(gaseosa1);
+        //    productos.Add(gaseosa2);
+        //    productos.Add(gaseosaPorMayor1);
+        //    productos.Add(gaseosaPorMayor2);
+        //    productos.Add(gaseosaPorMayor3);
+        //    productos.Add(milanesa1);
+        //    productos.Add(milanesa2);
+        //    productos.Add(bandeja);
 
-            ListaProductos listaDeProductos = new(productos);
+        //    ListaProductos listaDeProductos = new(productos);
 
-            string path = Path();
+        //    string path = Path();
 
-            Producto.Serializar(listaDeProductos, path);
-        }
+        //    Producto.Serializar(listaDeProductos, path);
+        //}
         /// <summary>
         /// Se realiza una modificación en el producto seleccioando y se lo reingresa a la lista.
         /// </summary>
@@ -394,14 +394,14 @@ namespace Aplicacion
 
                     ActualizarLista(frmAarroz);
                     Producto productoModificado = ultimoProductoIngresado();
-                    
+
                     if (frmAarroz.producto != producto)
                     {
-                        productoArroz.ModificarElemento(productoArroz,(Arroz)productoModificado);
+                        productoArroz.ModificarElemento(productoArroz, (Arroz)productoModificado);
                         this.listaDeProductos.ListaDeProductos.Remove(producto);
                         PublicarProductos();
                     }
-                   
+
                 }
                 else
                 {
@@ -484,7 +484,7 @@ namespace Aplicacion
                     if (resultado == DialogResult.Yes)
                     {
                         ManejadorEventos evento = new ManejadorEventos();
-                        
+
                         Producto producto = (Producto)lstProductos.SelectedItem;
 
                         if (producto is Arroz)
@@ -510,7 +510,7 @@ namespace Aplicacion
 
                         evento.mensajeMarca += MetodosDelegados.mensajeEliminado;
                         evento.Marca = "Eliminar";
-                        if(listaDeProductos - producto) PublicarProductos();
+                        if (listaDeProductos - producto) PublicarProductos();
 
 
                     }

@@ -105,7 +105,7 @@
             btnCargar.Name = "btnCargar";
             btnCargar.Size = new Size(116, 57);
             btnCargar.TabIndex = 3;
-            btnCargar.Text = "Cargar nuevos productos";
+            btnCargar.Text = "Cargar archivo de productos";
             btnCargar.UseVisualStyleBackColor = true;
             btnCargar.Click += btnCargar_Click;
             // 
@@ -116,7 +116,7 @@
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(116, 57);
             btnGuardar.TabIndex = 2;
-            btnGuardar.Text = "Guardar cambios";
+            btnGuardar.Text = "Guardar copia";
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
