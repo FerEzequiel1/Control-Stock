@@ -384,6 +384,9 @@ namespace Aplicacion
                     frmAarroz.StartPosition = FormStartPosition.CenterScreen;
                     frmAarroz.ShowDialog();
                     ActualizarLista(frmAarroz);
+
+                    Producto productoModificado = ultimoProductoIngresado();
+                    productoArroz.ModificarElemento(productoArroz,(Arroz)productoModificado);
                    
 
                 }
@@ -396,6 +399,7 @@ namespace Aplicacion
                         frmGaseosa.StartPosition = FormStartPosition.CenterScreen;
                         frmGaseosa.ShowDialog();
                         ActualizarLista(frmGaseosa);
+                        
                     }
                     else
                     {
