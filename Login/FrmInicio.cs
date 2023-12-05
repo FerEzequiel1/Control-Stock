@@ -54,7 +54,16 @@ namespace Aplicacion
             UsuariosLogeados(this.usuario);
 
             string path = Path();
-            this.listaDeProductos =  new ListaProductos(DatosTabla<Producto>.UnirListas());
+
+
+            Task cargaDeProductos = new Task(() =>
+            {
+                this.listaDeProductos =  new ListaProductos(DatosTabla<Producto>.UnirListas());
+            });
+            cargaDeProductos.Start();
+            cargaDeProductos.Wait();
+
+
                
             PublicarProductos();
 
