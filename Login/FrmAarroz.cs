@@ -18,7 +18,8 @@ namespace Aplicacion
         /// </summary>
         /// 
 
-        bool modifica = false;
+        public bool modifica = false;
+        public Arroz producto;
 
         public FrmAarroz(ListaProductos lista, Arroz producto, bool modifica) : this(lista)
         {
@@ -51,7 +52,7 @@ namespace Aplicacion
             if (marca != "no" && nombre)
             {
                 Arroz arroz = new Arroz(base.txtNombre.Text, base.txtTipo.Text, (EMarca)Enum.Parse(typeof(EMarca), marca), (int)base.nUDCantidad.Value, (float)base.nUDPrecio.Value, this.txtOrigen.Text, this.txtProveedor.Text);
-
+                producto = arroz;
                 //Se verifica que el producto ingresado no exita en la listaDeProductos del formulario principal
                 //Si esta no se agrega y se informa.Caso contrario lo agrega y se recetean los campos del formulario
                 if (base.Comparar(arroz))
@@ -82,6 +83,7 @@ namespace Aplicacion
             {
 
                 base.LimpiarCampos();
+                this.modifica = false;
             }
         }
     }

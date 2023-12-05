@@ -372,7 +372,7 @@ namespace Aplicacion
 
                 Producto producto = this.listaDeProductos.ListaDeProductos[indice];
 
-                this.listaDeProductos.ListaDeProductos.Remove(producto);
+                //this.listaDeProductos.ListaDeProductos.Remove(producto);
 
                 // Se verifica que de que tipo (Aarroz,gaseosa o gaseosa por mayor) es el producto para desplegar sus formularios de modificación correspondientes
                 // y agregar el producto modificado a la lista
@@ -383,10 +383,15 @@ namespace Aplicacion
                     FrmAarroz frmAarroz = new FrmAarroz(this.listaDeProductos, productoArroz, true);
                     frmAarroz.StartPosition = FormStartPosition.CenterScreen;
                     frmAarroz.ShowDialog();
-                    ActualizarLista(frmAarroz);
 
+                    ActualizarLista(frmAarroz);
                     Producto productoModificado = ultimoProductoIngresado();
-                    productoArroz.ModificarElemento(productoArroz,(Arroz)productoModificado);
+                    
+                    if (productoModificado != producto)
+                    {
+                        productoArroz.ModificarElemento(productoArroz,(Arroz)productoModificado);
+                        this.listaDeProductos.ListaDeProductos.Remove(producto);
+                    }
                    
 
                 }
