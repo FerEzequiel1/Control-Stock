@@ -24,8 +24,8 @@ internal class Program
 
 
       
-        DatosTabla<Milanesas>.AgregarObjeto(milanesa1);
-        DatosTabla<Milanesas>.AgregarObjeto(milanesa2);
+        DatosTabla<GaseosaPorMayor>.AgregarObjeto(gaseosaPorMayor1);
+        DatosTabla<GaseosaPorMayor>.AgregarObjeto(gaseosaPorMayor2);
       
         
 

@@ -47,8 +47,6 @@ namespace Aplicacion
         private void FrmInicio_Load(object sender, EventArgs e)
         {
            
-
-                
             DateTime fechaActual = DateTime.Now;
             this.lblUsuario.Text = $"{this.usuario.ToString()} {fechaActual.Day}/{fechaActual.Month}/{fechaActual.Year}";
             UsuariosLogeados(this.usuario);

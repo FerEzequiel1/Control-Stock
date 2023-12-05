@@ -58,8 +58,8 @@ namespace Control_de_ingresos
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(base.Mostrar());
-            sb.Append($"--- Unidades: {Unidades} --- Es artesanal: {Artesanal} --- TOTAL: {this.PrecioTotal()}");
+            sb.Append($"Nombre: {Nombre} --- Tipo:{Tipo} --- Marca: {Marca} --- Cantidad: {Cantidad} --- Precio: {Precio}");
+            sb.Append($" --- Mililitros: {Mililitros} --- Sabor: {Sabor} --- Unidades: {Unidades} --- Es artesanal: {Artesanal} TOTAL: {this.PrecioTotal()}");
 
             return sb.ToString();
         }
