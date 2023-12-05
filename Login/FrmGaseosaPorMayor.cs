@@ -15,11 +15,12 @@ namespace Aplicacion
     /// Formulario donde se va a completar los datos pedidos para poder crear un producto tipo GaseosaPorMayor
     /// </summary>
     /// 
-    
+
     public partial class FrmGaseosaPorMayor : FrmAgregarProducto
     {
         bool modifica = false;
-        public FrmGaseosaPorMayor(ListaProductos lista, GaseosaPorMayor producto,bool modifica) : this(lista)
+        public GaseosaPorMayor producto;
+        public FrmGaseosaPorMayor(ListaProductos lista, GaseosaPorMayor producto, bool modifica) : this(lista)
         {
             int indiceMarca = Array.IndexOf(Enum.GetValues(typeof(EMarca)), producto.Marca);
 
@@ -33,6 +34,7 @@ namespace Aplicacion
             this.nUDMLL.Value = (decimal)producto.Mililitros;
             this.txtSabor.Text = producto.Sabor;
             this.modifica = modifica;
+            this.producto = producto;
 
         }
         public FrmGaseosaPorMayor(ListaProductos lista) : base(lista)
@@ -52,7 +54,7 @@ namespace Aplicacion
             {
 
                 GaseosaPorMayor gaseosaPorMayor = new GaseosaPorMayor(base.txtNombre.Text, base.txtTipo.Text, (EMarca)Enum.Parse(typeof(EMarca), marca), (int)base.nUDCantidad.Value, (float)base.nUDPrecio.Value, (float)this.nUDMLL.Value, this.txtSabor.Text, (int)this.nUDUnidades.Value, this.txtArtesanal.Text);
-
+                producto = gaseosaPorMayor;
                 //Se verifica que el producto ingresado no exita en la listaDeProductos del formulario principal
                 //Si esta no se agrega y se informa.Caso contrario lo agrega y se recetean los campos del formulario
 
@@ -90,6 +92,21 @@ namespace Aplicacion
                 MessageBox.Show($"Debe responder con Si/No tiene chancho.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             return valor;
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            if (modifica)
+            {
+                this.Close();
+
+            }
+            else
+            {
+
+                base.LimpiarCampos();
+                this.modifica = false;
+            }
         }
     }
 }

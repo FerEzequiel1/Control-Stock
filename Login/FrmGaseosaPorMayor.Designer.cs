@@ -58,6 +58,7 @@
             gpArmado.Controls.Add(nUDUnidades);
             gpArmado.Controls.Add(label6);
             gpArmado.Size = new Size(789, 332);
+            gpArmado.Controls.SetChildIndex(btnCancelar, 0);
             gpArmado.Controls.SetChildIndex(txtNombre, 0);
             gpArmado.Controls.SetChildIndex(txtTipo, 0);
             gpArmado.Controls.SetChildIndex(nUDCantidad, 0);
@@ -72,6 +73,10 @@
             gpArmado.Controls.SetChildIndex(label8, 0);
             gpArmado.Controls.SetChildIndex(label9, 0);
             gpArmado.Controls.SetChildIndex(txtSabor, 0);
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // label6
             // 

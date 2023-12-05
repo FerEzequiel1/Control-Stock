@@ -423,7 +423,17 @@ namespace Aplicacion
                             FrmGaseosaPorMayor frmGaseosaMayor = new FrmGaseosaPorMayor(this.listaDeProductos, productoGaseosaPorMayor, true);
                             frmGaseosaMayor.StartPosition = FormStartPosition.CenterScreen;
                             frmGaseosaMayor.ShowDialog();
+
                             ActualizarLista(frmGaseosaMayor);
+
+                            Producto productoModificado = ultimoProductoIngresado();
+
+                            if (frmGaseosaMayor.producto != producto)
+                            {
+                                this.listaDeProductos.ListaDeProductos.Remove(producto);
+                                productoGaseosaPorMayor.ModificarElemento(productoGaseosaPorMayor, (GaseosaPorMayor)productoModificado);
+                                PublicarProductos();
+                            }
                         }
                         else
                         {
