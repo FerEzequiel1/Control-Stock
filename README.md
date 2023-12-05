@@ -12,8 +12,8 @@ Las opciones que se pueden encontrar son las de agregar 3 tipos de productos dif
 Todos los cambios que se hagan se podran guardar en la carpeta a elección asi como cargar archivos externos.
 
 # Diagrama de clases: Biblioteca de Clases.
-![Diagrama](./Login/img/diagramaClases.jpg)
+![Diagrama](./Login/img/diagramaClases.png)
 
 # Diagrama de clases: Crud de Control de stock.
-![Diagrama](./Login/img/diagramaForm.jpg)
+![Diagrama](./Login/img/diagramaForm.png)
 
