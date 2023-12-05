@@ -71,5 +71,26 @@ namespace PruebasDeClases
 
             Assert.IsFalse(resultado);
         }
+
+        public void MismoProductoMilanesaOK()
+        {
+            Milanesas milanesa1 = new Milanesas("Fernando", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Vacuno", "Brasil");
+            Milanesas milanesa2 = new Milanesas("Fernando", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Vacuno", "Brasil");
+
+            bool resultado = milanesa1 == milanesa2;
+
+            Assert.IsTrue(resultado);
+        }
+
+        [Test]
+        public void MismoProductoMilanesaNo()
+        {
+            Milanesas milanesa1 = new Milanesas("Fernando", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Vacuno", "Brasil");
+            Milanesas milanesa2 = new Milanesas("Franco", "Milanesas", (EMarca)Enum.Parse(typeof(EMarca), "Gallo"), 20, 300f, "Bovino", "Argentino");
+
+            bool resultado = milanesa1 == milanesa2;
+
+            Assert.IsFalse(resultado);
+        }
     }
 }
