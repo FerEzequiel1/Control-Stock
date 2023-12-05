@@ -206,6 +206,12 @@ namespace Control_de_ingresos
             return list;
         }
 
+        /// <summary>
+        /// Metodo para eliminar un producto de una tabla según el tipo especificado.
+        /// </summary>
+        /// <typeparam name="T">Tipo de producto a eliminar.</typeparam>
+        /// <param name="producto">Producto a eliminar de la tabla.</param>
+
         public static void EliminarProducto<T>(T producto)
         {
             try
@@ -231,12 +237,12 @@ namespace Control_de_ingresos
                     {
                         if (valor is Enum)
                         {
-                            valor = valor.ToString();
+                            valor = valor.ToString(); // Se castea a ToString ya que es un Enumerado y la base acepta string
                         }
-                        atributos.Add(property.Name);
-                        valores.Add(valor);
+                        atributos.Add(property.Name);// Agregar nombre del atributo
+                        valores.Add(valor); // Agregar valor del atributo
 
-                        queryBuilder.Append($"{property.Name} = @{property.Name} AND ");
+                        queryBuilder.Append($"{property.Name} = @{property.Name} AND "); // Se agrega condición a la consulta
                     }
                 }
 
