@@ -15,8 +15,15 @@ namespace Control_de_ingresos
 {
     public class DatosTabla<T>
     {
+        /// <summary>
+        /// Método para agregar un objeto genérico a la base de datos.
+        /// </summary>
         public static void AgregarObjeto(T objeto)
         {
+
+            // Obtener el nombre de la tabla correspondiente al tipo por
+            // medio del metodo OBtenerTabla
+
             string nombreTabla = ObtenerTabla(typeof(T));
 
             AccesoDatos conexion = new AccesoDatos();
@@ -25,6 +32,8 @@ namespace Control_de_ingresos
             conexion.comando = new SqlCommand();
             conexion.comando.Connection = conexion.conexion;
 
+            // Construir los strings para las columnas y valores de inserción con StringBuilder
+            // concatenando todos los valores necesarios
 
             StringBuilder columnas = new StringBuilder();
             StringBuilder valores = new StringBuilder();
@@ -36,21 +45,29 @@ namespace Control_de_ingresos
 
                 if (nombreColumna == "marca")
                 {
-                    valor = valor.ToString();
+                    valor = valor.ToString();   // Se castea a ToString ya que es un Enumerado y la base acepta string
                 }
+
                 columnas.Append($"{nombreColumna}, ");
                 valores.Append($"@{nombreColumna}, ");
 
+                // Se grega los parámetros al comando SQL
                 conexion.comando.Parameters.AddWithValue($"@{nombreColumna}", valor);
             }
+
+            // Se elimina las últimas comas y espacios en los strings de columnas y valores
 
             columnas.Length -= 2; 
             valores.Length -= 2;
 
+            //se completa la query concatengnado las tablas,columnas y valores 
+
             string query = $"INSERT INTO {nombreTabla} ({columnas}) VALUES ({valores})";
 
+            // Se establece  la consulta SQL al comando y se ejecuta
             conexion.comando.CommandText = query;
             conexion.comando.ExecuteNonQuery();
+
             Console.WriteLine($"Se ingreso {nombreTabla}");
             conexion.conexion.Close();
 
