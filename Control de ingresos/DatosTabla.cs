@@ -18,6 +18,8 @@ namespace Control_de_ingresos
         /// <summary>
         /// Método para agregar un objeto genérico a la base de datos.
         /// </summary>
+        /// <typeparam name="T">Tipo de objeto a agregar.</typeparam>
+
         public static void AgregarObjeto(T objeto)
         {
 
@@ -72,6 +74,11 @@ namespace Control_de_ingresos
             conexion.conexion.Close();
 
         }
+        /// <summary>
+        /// Método para obtener el nombre de la tabla correspondiente al tipo de objeto.
+        /// </summary>
+        /// <param name="tipo">Tipo de objeto del que se quiere obtener la tabla.</param>
+        /// <returns>Nombre de la tabla segun el tipo de objeto.</returns>
 
         private static string ObtenerTabla(Type tipo)
         {
@@ -98,6 +105,12 @@ namespace Control_de_ingresos
             return tabla;
         }
 
+        /// <summary>
+        /// Método para obtener todos los productos de una tabla correspondiente al tipo especificado.
+        /// </summary>
+        /// <typeparam name="T">Tipo de objeto del que se desean obtener los productos.</typeparam>
+        /// <returns>Lista de objetos del tipo especificado con los productos obtenidos de la tabla.</returns>
+
         public static List<T> ObtenerTodos<T>()
         {
             List<T> list = new List<T>();
@@ -107,30 +120,38 @@ namespace Control_de_ingresos
 
             try
             {
+                // Se obtiene el nombre de la tabla,se establece la conexion y la query con el resultado del nombre de la tabla
                 string nombreTabla = ObtenerTabla(typeof(T));
                 string query = $"SELECT * FROM {nombreTabla}";
                 conexion.comando = new SqlCommand();
                 conexion.comando.CommandText= query;
                 conexion.comando.Connection = conexion.conexion;
-                conexion.lector = conexion.comando.ExecuteReader();
+                conexion.lector = conexion.comando.ExecuteReader(); // Ejecuta la consulta y obtiene un lector de datos
 
-                while(conexion.lector.Read()) 
+                while (conexion.lector.Read()) // Iterar a traves de cada fila obtenida
+
                 {
-                    T objeto = Activator.CreateInstance<T>();
-                    var properties = typeof(T).GetProperties();
+                    T objeto = Activator.CreateInstance<T>(); // Crea una instancia del tipo T
+                    var properties = typeof(T).GetProperties(); // Se obtiene las propiedades del tipo T
 
                     for (int i = 0; i < conexion.lector.FieldCount; i++)
                     {
                         string nombreColumna = conexion.lector.GetName(i);
                         object valor = conexion.lector.GetValue(i);
 
+                        // Convertir el valor de la columna "marca" a un enum si para instanciar el objeto correctamente
                         if (nombreColumna == "marca")
                         {
                             string marca = valor.ToString();
                             valor = (EMarca)Enum.Parse(typeof(EMarca), marca);
                         }
-                       
+
+                        // Se Busca la propiedad correspondiente a la columna actual con el mismo nombre
+
                         var property = properties.FirstOrDefault(p => string.Equals(p.Name, nombreColumna, StringComparison.OrdinalIgnoreCase));
+
+                        // Si se encuentra la propiedad y el valor no es DBNull
+                        // Se convierte y asigna el valor a la propiedad del objeto
 
                         if (property != null && valor != DBNull.Value)
                         {
@@ -139,16 +160,14 @@ namespace Control_de_ingresos
                         }
                     }
                     list.Add(objeto);
-
                 }
-
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                Console.WriteLine(e.Message);
             }
-            finally
+            finally   //Se cierra la conexion si esta abierta y de la misma forma se trata el lector
             {
                 if (conexion.conexion.State == System.Data.ConnectionState.Open)
                 {
