@@ -487,7 +487,7 @@ namespace Aplicacion
         //Cracion de un metodo dentro del formulario principal para la obtencion del ultimo elemento ingresado para ser tratado en la base de datos
         private Producto ultimoProductoIngresado()
         {
-            Producto producto = this.listaDeProductos.ListaDeProductos[-1];
+            Producto producto = this.listaDeProductos.ListaDeProductos.Last();
 
             return producto;
         }

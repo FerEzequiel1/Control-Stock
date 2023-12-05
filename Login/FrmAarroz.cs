@@ -39,7 +39,7 @@ namespace Aplicacion
         }
         public FrmAarroz()
         {
-            
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -68,6 +68,20 @@ namespace Aplicacion
                         this.Close();
                     }
                 }
+            }
+        }
+
+        private void btnCancelar2_Click(object sender, EventArgs e)
+        {
+            if (modifica)
+            {
+                this.Close();
+
+            }
+            else
+            {
+
+                base.LimpiarCampos();
             }
         }
     }

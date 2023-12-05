@@ -24,7 +24,7 @@ namespace Aplicacion
         {
             InitializeComponent();
             this.lista = lista;
-    
+
         }
         public FrmAgregarProducto()
         {
@@ -64,18 +64,18 @@ namespace Aplicacion
 
             ManejadorEventos evento = new ManejadorEventos();
             evento.mensajeMarca += MetodosDelegados.mensajeMarca;
-          
+
 
             if (cmbMarca.SelectedItem != null)
             {
                 rta = cmbMarca.SelectedItem.ToString();
 
             }
-            else 
+            else
             {
                 evento.Marca = "Debe seleccionar una marca.";
             }
-            
+
 
             return rta;
         }
@@ -91,7 +91,7 @@ namespace Aplicacion
             ManejadorEventos evento = new ManejadorEventos();
             evento.mensajeNombreTipo += MetodosDelegados.mensajeNombreTipo;
 
-            if (this.txtNombre.Text.Length > 0 && this.txtTipo.Text.Length>0)
+            if (this.txtNombre.Text.Length > 0 && this.txtTipo.Text.Length > 0)
             {
                 rta = true;
             }

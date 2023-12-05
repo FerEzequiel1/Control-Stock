@@ -218,7 +218,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Button btnCancelar;
         public ComboBox cmbMarca;
         public Button btnAgregar;
         public GroupBox gpArmado;
@@ -226,5 +225,6 @@
         protected TextBox txtTipo;
         protected NumericUpDown nUDCantidad;
         protected NumericUpDown nUDPrecio;
+        public Button btnCancelar;
     }
 }

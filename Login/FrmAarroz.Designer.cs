@@ -32,6 +32,7 @@
             txtProveedor = new TextBox();
             label6 = new Label();
             label7 = new Label();
+            btnCancelar2 = new Button();
             gpArmado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nUDCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nUDPrecio).BeginInit();
@@ -39,10 +40,13 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.Location = new Point(628, 262);
+            btnAgregar.Size = new Size(76, 41);
             btnAgregar.Click += btnAgregar_Click;
             // 
             // gpArmado
             // 
+            gpArmado.Controls.Add(btnCancelar2);
             gpArmado.Controls.Add(label7);
             gpArmado.Controls.Add(label6);
             gpArmado.Controls.Add(txtOrigen);
@@ -57,6 +61,7 @@
             gpArmado.Controls.SetChildIndex(txtOrigen, 0);
             gpArmado.Controls.SetChildIndex(label6, 0);
             gpArmado.Controls.SetChildIndex(label7, 0);
+            gpArmado.Controls.SetChildIndex(btnCancelar2, 0);
             // 
             // txtOrigen
             // 
@@ -90,6 +95,19 @@
             label7.TabIndex = 16;
             label7.Text = "Proveedor";
             // 
+            // btnCancelar2
+            // 
+            btnCancelar2.BackColor = Color.Red;
+            btnCancelar2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar2.ForeColor = SystemColors.ButtonHighlight;
+            btnCancelar2.Location = new Point(492, 264);
+            btnCancelar2.Name = "btnCancelar2";
+            btnCancelar2.Size = new Size(85, 41);
+            btnCancelar2.TabIndex = 17;
+            btnCancelar2.Text = "Cancelar";
+            btnCancelar2.UseVisualStyleBackColor = false;
+            btnCancelar2.Click += btnCancelar2_Click;
+            // 
             // FrmAarroz
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -110,5 +128,6 @@
         private TextBox txtProveedor;
         internal Label label7;
         internal Label label6;
+        private Button btnCancelar2;
     }
 }
