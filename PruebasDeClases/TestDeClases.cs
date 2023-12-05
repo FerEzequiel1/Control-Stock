@@ -49,5 +49,27 @@ namespace PruebasDeClases
 
             Assert.IsFalse(resultado);
         }
+
+        [Test]
+        public void MismoProductoGaseosaMayorOK()
+        {
+            GaseosaPorMayor gaseosaPorMayor1 = new GaseosaPorMayor("Trini", "Gaseosa Mayorista", (EMarca)Enum.Parse(typeof(EMarca), "Vienissima"), 4, 300f, 0.500f, "Uva", 1000, "Si");
+            GaseosaPorMayor gaseosaPorMayor2 = new GaseosaPorMayor("Trini", "Gaseosa Mayorista", (EMarca)Enum.Parse(typeof(EMarca), "Vienissima"), 4, 300f, 0.500f, "Uva", 1000, "Si");
+
+            bool resultado = gaseosaPorMayor1 == gaseosaPorMayor2;
+
+            Assert.IsTrue(resultado);
+        }
+
+        [Test]
+        public void MismoProductoGaseosaMayorNo()
+        {
+            GaseosaPorMayor gaseosaPorMayor1 = new GaseosaPorMayor("Trini", "Gaseosa Mayorista", (EMarca)Enum.Parse(typeof(EMarca), "Vienissima"), 4, 300f, 0.500f, "Uva", 1000, "Si");
+            GaseosaPorMayor gaseosaPorMayor2 = new GaseosaPorMayor("Don Antonio", "Gaseosa Mayorista", (EMarca)Enum.Parse(typeof(EMarca), "Swift"), 4, 150f, 0.500f, "Naranja", 500, "No");
+
+            bool resultado = gaseosaPorMayor1 == gaseosaPorMayor2;
+
+            Assert.IsFalse(resultado);
+        }
     }
 }
