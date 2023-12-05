@@ -16,7 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pruebaSQLa", "pruebaSQLa\pruebaSQLa.csproj", "{E1774507-3E3A-4AAF-B66D-DC06E50D545F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{D521251D-A888-4512-9D8B-6823555A841B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{D521251D-A888-4512-9D8B-6823555A841B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasDeClases", "PruebasDeClases\PruebasDeClases.csproj", "{6097AD1D-09E1-4070-8AD1-DF2534056FBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{D521251D-A888-4512-9D8B-6823555A841B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D521251D-A888-4512-9D8B-6823555A841B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D521251D-A888-4512-9D8B-6823555A841B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6097AD1D-09E1-4070-8AD1-DF2534056FBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6097AD1D-09E1-4070-8AD1-DF2534056FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6097AD1D-09E1-4070-8AD1-DF2534056FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6097AD1D-09E1-4070-8AD1-DF2534056FBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
