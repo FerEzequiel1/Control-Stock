@@ -18,6 +18,7 @@ namespace Aplicacion
         /// </summary>
         /// 
         bool modifica = false;
+        public Gaseosa producto;
         public FrmGaseosa(ListaProductos lista, Gaseosa producto, bool modifica) : this(lista)
         {
             int indiceMarca = Array.IndexOf(Enum.GetValues(typeof(EMarca)), producto.Marca);
@@ -30,6 +31,8 @@ namespace Aplicacion
             this.nUDMililitros.Value = (decimal)producto.Mililitros;
             this.txtSabor.Text = producto.Sabor;
             this.modifica = modifica;
+            this.producto = producto;
+
         }
         public FrmGaseosa(ListaProductos lista) : base(lista)
         {
@@ -45,7 +48,7 @@ namespace Aplicacion
             if (marca != "no" && nombre)
             {
                 Gaseosa gaseosa = new Gaseosa(base.txtNombre.Text, base.txtTipo.Text, (EMarca)Enum.Parse(typeof(EMarca), marca), (int)base.nUDCantidad.Value, (float)base.nUDPrecio.Value, (float)this.nUDMililitros.Value, this.txtSabor.Text);
-
+                this.producto = gaseosa;
                 //Se verifica que el producto ingresado no exita en la listaDeProductos del formulario principal
                 //Si esta no se agrega y se informa.Caso contrario lo agrega y se recetean los campos del formulario
                 if (base.Comparar(gaseosa))
