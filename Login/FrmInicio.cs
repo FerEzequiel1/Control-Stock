@@ -384,6 +384,7 @@ namespace Aplicacion
                     frmAarroz.StartPosition = FormStartPosition.CenterScreen;
                     frmAarroz.ShowDialog();
                     ActualizarLista(frmAarroz);
+                   
 
                 }
                 else
@@ -445,15 +446,15 @@ namespace Aplicacion
                             evento.EliminarProductoArroz += MetodosDelegados.ElimnarProductoPorDelegadoArroz;
                             evento.Arroz = (Arroz)producto;
                         }
-                        else if (producto is Gaseosa)
-                        {
-                            evento.EliminarProductoGaseosa += MetodosDelegados.ElimnarProductoPorDelegadoGaseosa;
-                            evento.Gaseosa = (Gaseosa)producto;
-                        }
                         else if (producto is GaseosaPorMayor)
                         {
                             evento.EliminarProductoGaseosaMayor += MetodosDelegados.ElimnarProductoPorDelegadoGaseosaPorMayor;
                             evento.GaseosaPorMayor = (GaseosaPorMayor)producto;
+                        }
+                        else if (producto is Gaseosa)
+                        {
+                            evento.EliminarProductoGaseosa += MetodosDelegados.ElimnarProductoPorDelegadoGaseosa;
+                            evento.Gaseosa = (Gaseosa)producto;
                         }
                         else
                         {
@@ -477,6 +478,14 @@ namespace Aplicacion
             {
                 MessageBox.Show($"Su perfil de {usuario.perfil} no puede realizar dicha acción.", "Producto eliminado.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        //Cracion de un metodo dentro del formulario principal para la obtencion del ultimo elemento ingresado para ser tratado en la base de datos
+        private Producto ultimoProductoIngresado()
+        {
+            Producto producto = this.listaDeProductos.ListaDeProductos[-1];
+
+            return producto;
         }
     }
 }

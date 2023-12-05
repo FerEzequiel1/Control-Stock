@@ -23,14 +23,12 @@ internal class Program
         
 
 
-        DatosTabla<Arroz>.AgregarObjeto(arroz1);
-        DatosTabla<Arroz>.AgregarObjeto(arroz2);
+      
         DatosTabla<Gaseosa>.AgregarObjeto(gaseosa1);
         DatosTabla<Gaseosa>.AgregarObjeto(gaseosa2);
         DatosTabla<GaseosaPorMayor>.AgregarObjeto(gaseosaPorMayor1);
         DatosTabla<GaseosaPorMayor>.AgregarObjeto(gaseosaPorMayor2);
-        DatosTabla<Milanesas>.AgregarObjeto(milanesa1);
-        DatosTabla<Milanesas>.AgregarObjeto(milanesa2);
+        
 
 
 
