@@ -51,6 +51,7 @@ namespace Control_de_ingresos
 
             conexion.comando.CommandText = query;
             conexion.comando.ExecuteNonQuery();
+            Console.WriteLine($"Se ingreso {nombreTabla}");
             conexion.conexion.Close();
 
         }
