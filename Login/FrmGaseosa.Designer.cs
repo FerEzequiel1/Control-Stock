@@ -49,6 +49,7 @@
             gpArmado.Controls.Add(label6);
             gpArmado.Controls.Add(txtSabor);
             gpArmado.Controls.Add(nUDMililitros);
+            gpArmado.Controls.SetChildIndex(btnCancelar, 0);
             gpArmado.Controls.SetChildIndex(txtNombre, 0);
             gpArmado.Controls.SetChildIndex(txtTipo, 0);
             gpArmado.Controls.SetChildIndex(nUDCantidad, 0);
@@ -59,6 +60,10 @@
             gpArmado.Controls.SetChildIndex(txtSabor, 0);
             gpArmado.Controls.SetChildIndex(label6, 0);
             gpArmado.Controls.SetChildIndex(label7, 0);
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // nUDMililitros
             // 

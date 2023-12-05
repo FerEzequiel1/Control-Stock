@@ -391,9 +391,9 @@ namespace Aplicacion
                     {
                         productoArroz.ModificarElemento(productoArroz,(Arroz)productoModificado);
                         this.listaDeProductos.ListaDeProductos.Remove(producto);
+                        PublicarProductos();
                     }
                    
-
                 }
                 else
                 {
@@ -409,8 +409,9 @@ namespace Aplicacion
 
                         if (frmGaseosa.producto != producto)
                         {
-                            productoGaseosa.ModificarElemento(productoGaseosa, (Gaseosa)productoModificado);
                             this.listaDeProductos.ListaDeProductos.Remove(producto);
+                            productoGaseosa.ModificarElemento(productoGaseosa, (Gaseosa)productoModificado);
+                            PublicarProductos();
                         }
 
                     }
