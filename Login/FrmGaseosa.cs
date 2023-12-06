@@ -75,6 +75,7 @@ namespace Aplicacion
             }
         }
 
+        // Si se abrio en una instacia de modifiacion se cierra el formulairo,de lo contrario si se esta ingresando un producto borra los campos
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             if (modifica)
