@@ -61,6 +61,7 @@ namespace Aplicacion
                 {
                     base.agregar(gaseosa);
                     base.LimpiarCampos();
+                    DatosTabla<Gaseosa>.AgregarObjeto(gaseosa);
 
                     if (modifica)
                     {

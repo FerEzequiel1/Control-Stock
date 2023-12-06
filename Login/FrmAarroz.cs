@@ -64,6 +64,8 @@ namespace Aplicacion
                 {
                     base.agregar(arroz);
                     base.LimpiarCampos();
+                    DatosTabla<Arroz>.AgregarObjeto(arroz);
+
 
                     if (modifica)
                     {

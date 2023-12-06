@@ -58,6 +58,7 @@ namespace Aplicacion
                 {
                     base.agregar(milanesa);
                     base.LimpiarCampos();
+                    DatosTabla<Milanesas>.AgregarObjeto(milanesa);
 
                     if (modifica)
                     {

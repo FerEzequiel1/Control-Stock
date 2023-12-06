@@ -66,6 +66,7 @@ namespace Aplicacion
                 {
                     base.agregar(gaseosaPorMayor);
                     base.LimpiarCampos();
+                    DatosTabla<GaseosaPorMayor>.AgregarObjeto(gaseosaPorMayor);
 
                     if (modifica)
                     {
@@ -94,7 +95,7 @@ namespace Aplicacion
             }
             else
             {
-                MessageBox.Show($"Debe responder con Si/No tiene chancho.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show($"Debe responder con Si/No si es artesanal.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             return valor;
         }
