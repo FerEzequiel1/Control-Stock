@@ -380,8 +380,6 @@ namespace Aplicacion
 
                 Producto producto = this.listaDeProductos.ListaDeProductos[indice];
 
-                //this.listaDeProductos.ListaDeProductos.Remove(producto);
-
                 // Se verifica que de que tipo (Aarroz,gaseosa o gaseosa por mayor) es el producto para desplegar sus formularios de modificación correspondientes
                 // y agregar el producto modificado a la lista
 
@@ -393,12 +391,13 @@ namespace Aplicacion
                     frmAarroz.ShowDialog();
 
                     ActualizarLista(frmAarroz);
-                    Producto productoModificado = ultimoProductoIngresado();
+                    Producto productoModificado = ultimoProductoIngresado(); //Se obtiene el ultimo producto ingresado en la lista
 
                     if (frmAarroz.producto != producto)
                     {
+                        // Realiza la modificación del  producto en la base de datos
                         productoArroz.ModificarElemento(productoArroz, (Arroz)productoModificado);
-                        this.listaDeProductos.ListaDeProductos.Remove(producto);
+                        this.listaDeProductos.ListaDeProductos.Remove(producto); 
                         PublicarProductos();
                     }
 
@@ -417,6 +416,7 @@ namespace Aplicacion
 
                         if (frmGaseosa.producto != producto)
                         {
+                            // Realiza la modificación del  producto en la base de datos
                             this.listaDeProductos.ListaDeProductos.Remove(producto);
                             productoGaseosa.ModificarElemento(productoGaseosa, (Gaseosa)productoModificado);
                             PublicarProductos();
@@ -438,6 +438,7 @@ namespace Aplicacion
 
                             if (frmGaseosaMayor.producto != producto)
                             {
+                                // Realiza la modificación del  producto en la base de datos
                                 this.listaDeProductos.ListaDeProductos.Remove(producto);
                                 productoGaseosaPorMayor.ModificarElemento(productoGaseosaPorMayor, (GaseosaPorMayor)productoModificado);
                                 PublicarProductos();
@@ -456,6 +457,7 @@ namespace Aplicacion
 
                             if (frmMilanesa.producto != producto)
                             {
+                                // Realiza la modificación del  producto en la base de datos
                                 this.listaDeProductos.ListaDeProductos.Remove(producto);
                                 milanesa.ModificarElemento(milanesa, (Milanesas)productoModificado);
                                 PublicarProductos();
