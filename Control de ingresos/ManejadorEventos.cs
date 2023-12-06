@@ -7,6 +7,9 @@ using static Control_de_ingresos.Delegados;
 
 namespace Control_de_ingresos
 {
+    /// <summary>
+    /// Esta clase actua como un manejador de eventos para diferentes tipos situaciones a lo largo del programa.
+    /// </summary>
     public class ManejadorEventos
     {
         private string marca;
@@ -17,6 +20,7 @@ namespace Control_de_ingresos
         private GaseosaPorMayor gaseosaPorMayor;
         private Milanesas milanesa;
 
+        // Eventos públicos asociados con cambios en propiedades específicas y eliminación de productos
 
         public event mensajeDelegado mensajeMarca;
         public event mensajeNombreTipo mensajeNombreTipo;
@@ -35,7 +39,7 @@ namespace Control_de_ingresos
         }
 
 
-
+        // Obtiene y establece la marca; invoca mensajeMarca cuando se le pase un texto predeterminado
         public string Marca
         {
 
@@ -49,6 +53,8 @@ namespace Control_de_ingresos
             }
 
         }
+
+        // Propiedades para diferentes tipos de productos(Arroz,Gaseosa,GaseosaPorMayor,Milanesas); invocan eventos de eliminación de productos correspondientes
         public Arroz Arroz
         {
 
@@ -104,6 +110,7 @@ namespace Control_de_ingresos
             }
 
         }
+        // Propiedad para el nombre del tipo; invoca mensajeNombreTipo si el valor es 0 para informar que no se ingeso nada
 
         public int NombreTipo
         {
