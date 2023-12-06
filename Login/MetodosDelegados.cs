@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Aplicacion
 {
+
+    /// <summary>
+    /// Esta clase actua como un biblioteca de metodos que van a ser usados como delegados dentro de la Aplicacion
+    /// </summary>
     public static class MetodosDelegados
     {
         public static void mensajeMarca(string mensaje)
