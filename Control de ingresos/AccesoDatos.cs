@@ -12,12 +12,15 @@ using System.Collections;
 
 namespace Control_de_ingresos
 {
+    /// <summary>
+    /// Clase para manejar la conexión y acceso a datos en la base de datos.
+    /// </summary>
     public class AccesoDatos
     {
-        public SqlConnection conexion;
-        public static string cadena_conexion;
-        public SqlCommand comando;
-        public SqlDataReader lector;
+        public SqlConnection conexion;// Objeto de conexión a la base de datos
+        public static string cadena_conexion; // Cadena de conexión estática
+        public SqlCommand comando; // Comando SQL para operaciones en la base de datos
+        public SqlDataReader lector; // Lector de datos para consultar resultados
 
         static AccesoDatos()
         {
@@ -42,7 +45,7 @@ namespace Control_de_ingresos
             catch (Exception e)
             {
 
-                throw;
+                Console.WriteLine(e.Message);
             }
             finally 
             { 
@@ -56,47 +59,47 @@ namespace Control_de_ingresos
             return retorno;
         }
 
-        public List<Arroz> obtenerLista()
-        {
-            List <Arroz> lista = new List<Arroz> ();
+        //public List<Arroz> obtenerLista()
+        //{
+        //    List <Arroz> lista = new List<Arroz> ();
 
-            try
-            {
-                this.comando = new SqlCommand();
-                this.comando.CommandType = System.Data.CommandType.Text;
-                this.comando.CommandText = "select * from Arroz";
-                this.comando.Connection = this.conexion;
+        //    try
+        //    {
+        //        this.comando = new SqlCommand();
+        //        this.comando.CommandType = System.Data.CommandType.Text;
+        //        this.comando.CommandText = "select * from Arroz";
+        //        this.comando.Connection = this.conexion;
 
-                this.conexion.Open();
+        //        this.conexion.Open();
 
-                this.lector = this.comando.ExecuteReader();
+        //        this.lector = this.comando.ExecuteReader();
 
-                while (this.lector.Read()) 
-                { 
-                    Arroz aroz = new Arroz();
-                    aroz.Nombre = (string)this.lector["nombre"];
-                    aroz.Tipo = (string)this.lector["tipo"];
-                    aroz.Marca = (EMarca)Enum.Parse(typeof(EMarca), (string)this.lector["marca"]);
-                    aroz.Cantidad = (int)this.lector["cantidad"];
-                    aroz.Precio = (float)this.lector.GetDouble(5);
-                    aroz.Origen = (string)this.lector["origen"];
-                    aroz.Proveedor = (string)this.lector["proveedor"];
-                    lista.Add(aroz);
-                }
-                this.lector.Close();
-            }
-            catch (Exception ex)
-            {
+        //        while (this.lector.Read()) 
+        //        { 
+        //            Arroz aroz = new Arroz();
+        //            aroz.Nombre = (string)this.lector["nombre"];
+        //            aroz.Tipo = (string)this.lector["tipo"];
+        //            aroz.Marca = (EMarca)Enum.Parse(typeof(EMarca), (string)this.lector["marca"]);
+        //            aroz.Cantidad = (int)this.lector["cantidad"];
+        //            aroz.Precio = (float)this.lector.GetDouble(5);
+        //            aroz.Origen = (string)this.lector["origen"];
+        //            aroz.Proveedor = (string)this.lector["proveedor"];
+        //            lista.Add(aroz);
+        //        }
+        //        this.lector.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-            }
-            finally
-            {
-                if (this.conexion.State == System.Data.ConnectionState.Open) this.conexion.Close();
-            }
+        //    }
+        //    finally
+        //    {
+        //        if (this.conexion.State == System.Data.ConnectionState.Open) this.conexion.Close();
+        //    }
 
 
-            return lista;
-        }
+        //    return lista;
+        //}
 
     }
 }

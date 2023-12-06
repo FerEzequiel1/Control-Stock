@@ -124,7 +124,12 @@ namespace Control_de_ingresos
             return new Gaseosa("Pack de gaseosas", "Mezcla", (EMarca)Enum.Parse(typeof(EMarca), "Trapal"), a.Cantidad + b.Cantidad, (a.Precio + b.Precio) * 0.7f, 3f, "Fantasia");
         }
 
-
+        /// <summary>
+        /// Modifica un elemento en la tabla Gaseosa con los datos del segundo producto, basado en los datos del primer producto.
+        /// </summary>
+        /// <param name="producto1">El primer producto que sirve como referencia para la búsqueda del elemento a modificar.</param>
+        /// <param name="producto2">El segundo producto que contiene los datos para la modificación.</param>
+       
         public void ModificarElemento(Gaseosa producto1, Gaseosa producto2)
         {
             string nombreTabla = "Gaseosa";
@@ -132,10 +137,14 @@ namespace Control_de_ingresos
             conexion.conexion.Open();
             try
             {
+                //Esta forma de consulta es 
+                // Consulta SQL para actualizar los datos del elemento en la tabla
+
                 string consulta = $"UPDATE {nombreTabla} SET cantidad = @cantidad, marca = @marca, nombre = @nombre, tipo = @tipo, precio = @precio," +
                                   $" sabor = @sabor, mililitros = @mililitros WHERE cantidad = @cantidad1 AND marca = @marca1 AND nombre = @nombre1 AND tipo = @tipo1 AND precio = @precio1 AND" +
                                   $" sabor = @sabor1 AND mililitros = @mililitros1";
 
+                // Configuración del comando SQL
                 conexion.comando = new SqlCommand();
                 conexion.comando.Connection = conexion.conexion;
                 conexion.comando.CommandText = consulta;
