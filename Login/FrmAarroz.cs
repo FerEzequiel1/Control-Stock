@@ -64,7 +64,6 @@ namespace Aplicacion
                 {
                     base.agregar(arroz);
                     base.LimpiarCampos();
-                    DatosTabla<Arroz>.AgregarObjeto(arroz);
 
 
                     if (modifica)
@@ -74,6 +73,7 @@ namespace Aplicacion
                     }
                     else
                     {
+                        DatosTabla<Arroz>.AgregarObjeto(arroz);
                         MessageBox.Show($"El producto ha sido ingresado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Control_de_ingresos
 {
-    public  class Delegados
+    /// <summary>
+    /// Declaraciones de la firma de los delegados para su uso en el programa
+    /// </summary>
+    public class Delegados
     {
         public delegate void mensajeDelegado(string edad);
         public delegate void mensajeNombreTipo();

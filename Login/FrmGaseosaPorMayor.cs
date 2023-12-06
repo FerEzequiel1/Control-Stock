@@ -66,7 +66,6 @@ namespace Aplicacion
                 {
                     base.agregar(gaseosaPorMayor);
                     base.LimpiarCampos();
-                    DatosTabla<GaseosaPorMayor>.AgregarObjeto(gaseosaPorMayor);
 
                     if (modifica)
                     {
@@ -75,6 +74,7 @@ namespace Aplicacion
                     }
                     else
                     {
+                        DatosTabla<GaseosaPorMayor>.AgregarObjeto(gaseosaPorMayor);
                         MessageBox.Show($"El producto ha sido ingresado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

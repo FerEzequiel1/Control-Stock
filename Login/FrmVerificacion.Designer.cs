@@ -122,6 +122,7 @@ namespace Login
             Controls.Add(txtUsuario);
             Controls.Add(label2);
             Controls.Add(label1);
+            MaximumSize = new Size(361, 266);
             Name = "FrmVerificacion";
             Text = "Login";
             ResumeLayout(false);

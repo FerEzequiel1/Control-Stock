@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Control_de_ingresos
 {
+    /// <summary>
+    /// Interfaz creada para que las clases usuarias implemente el metodo Modificarelemnto 
+    /// </summary>
     public interface IModificarProducto<T> 
 
     {

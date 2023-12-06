@@ -57,7 +57,7 @@ namespace Login
 
                 string json_str = sr.ReadToEnd();
 
-                
+
                 List<Usuario> users = JsonSerializer.Deserialize<List<Usuario>>(json_str, opciones);
 
                 // Se verifica a travez de la lista de usuarios deserializada con ayuda de la clases Usuario si 
@@ -84,7 +84,7 @@ namespace Login
         /// Cada caracter de la contraseña puesta en el form se muestra como una * para portección de la misma.
         /// Con este método se cambia es simbolo por la contraseña textual que ingreso el usuario para poder ser visualizada.
         /// </summary>
-       
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkContraseña.Checked)

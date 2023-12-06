@@ -58,7 +58,6 @@ namespace Aplicacion
                 {
                     base.agregar(milanesa);
                     base.LimpiarCampos();
-                    DatosTabla<Milanesas>.AgregarObjeto(milanesa);
 
                     if (modifica)
                     {
@@ -67,6 +66,7 @@ namespace Aplicacion
                     }
                     else
                     {
+                        DatosTabla<Milanesas>.AgregarObjeto(milanesa);
                         MessageBox.Show($"El producto ha sido ingresado con éxito", "Producto Ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
