@@ -124,6 +124,11 @@ namespace Control_de_ingresos
             return new Arroz("Combo Bolsa de Arroz", "Mezcla", (EMarca)Enum.Parse(typeof(EMarca), "Trapal"), a.Cantidad + b.Cantidad, (a.Precio + b.Precio) * 0.7f, "Argentina", "Trapal");
         }
 
+        /// <summary>
+        /// Modifica un elemento en la tabla Arroz con los datos del segundo producto, basado en los datos del primer producto.
+        /// </summary>
+        /// <param name="producto1">El primer producto que sirve como referencia para la búsqueda del elemento a modificar.</param>
+        /// <param name="producto2">El segundo producto que contiene los datos para la modificación.</param>
 
         public void ModificarElemento(Arroz producto1, Arroz producto2)
         {
@@ -132,10 +137,14 @@ namespace Control_de_ingresos
             conexion.conexion.Open();
             try
             {
+                // Consulta SQL para actualizar los datos del elemento en la tabla
+
                 string consulta = $"UPDATE {nombreTabla} SET cantidad = @cantidad, marca = @marca, nombre = @nombre, tipo = @tipo, precio = @precio," +
                                   $"origen = @origen, proveedor = @proveedor WHERE cantidad = @cantidad1 AND marca = @marca1 AND nombre = @nombre1 AND tipo = @tipo1 AND precio = @precio1 AND " +
                                   $"origen = @origen1 AND proveedor = @proveedor1";
 
+
+                // Configuración del comando SQL
                 conexion.comando = new SqlCommand();
                 conexion.comando.Connection = conexion.conexion;
                 conexion.comando.CommandText = consulta;

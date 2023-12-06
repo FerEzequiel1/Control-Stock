@@ -137,7 +137,6 @@ namespace Control_de_ingresos
             conexion.conexion.Open();
             try
             {
-                //Esta forma de consulta es 
                 // Consulta SQL para actualizar los datos del elemento en la tabla
 
                 string consulta = $"UPDATE {nombreTabla} SET cantidad = @cantidad, marca = @marca, nombre = @nombre, tipo = @tipo, precio = @precio," +
