@@ -1,7 +1,7 @@
 # Título: Control de stock mayorista Trapal
 
 # Sobre mi:
-Me llamo Fernando Ezequiel Espinoza,tengo 22 años y actualmente estoy cursando el primer año de la Tecnicatura en Programación en la Universided Tecnológica Nacional.
+Me llamo Fernando Ezequiel Espinoza,tengo 22 años y actualmente estoy cursando el segundo año de la Tecnicatura en Programación en la Universided Tecnológica Nacional.
 Me gusta mucho todo lo que respecta a la lógica de programación e hice este CRUD tal vez no con tanta estética,pero es lindo y funcional. Espero que les guste :D.
 
 # Resumen:
